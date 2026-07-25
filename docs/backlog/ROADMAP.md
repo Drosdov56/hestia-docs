@@ -52,15 +52,15 @@ EPIC-001 → EPIC-002 → EPIC-003
 
 ## Jalons de validation
 
-| Jalon | Critère de succès | Source |
-|-------|-------------------|--------|
-| J1 | Agent envoie un événement normalisé au Backend | ADR-020, architecture-domotique §11 |
-| J2 | Fiche `Equipment` + `hestia_device_id` persistés | Module 70, ADR-005 |
-| J3 | Parcours Admin : détecté → actif (un capteur) | ADR-004, UX-003 |
-| J4 | PoC : événement réel → information utile affichée | FUNCTIONAL-VISION §15 |
-| J5 | Notification éventuelle reçue | FUNCTIONAL-VISION §12, §15 |
-| J6 | Décision explicable sur informations utiles | MODELE-DECISION |
-| J7 | Habitat + foyer structurés sans dépendre des capteurs | MODELE-HABITAT, MODELE-FOYER |
+| Jalon | Critère de succès | Source | Statut |
+|-------|-------------------|--------|--------|
+| J1 | Agent envoie un événement normalisé au Backend | ADR-020, architecture-domotique §11 | **Atteint** (EPIC-001 clôturée 2026-07-25) |
+| J2 | Fiche `Equipment` + `hestia_device_id` persistés | Module 70, ADR-005 | — |
+| J3 | Parcours Admin : détecté → actif (un capteur) | ADR-004, UX-003 | — |
+| J4 | PoC : événement réel → information utile affichée | FUNCTIONAL-VISION §15 | — |
+| J5 | Notification éventuelle reçue | FUNCTIONAL-VISION §12, §15 | — |
+| J6 | Décision explicable sur informations utiles | MODELE-DECISION | — |
+| J7 | Habitat + foyer structurés sans dépendre des capteurs | MODELE-HABITAT, MODELE-FOYER | — |
 
 ---
 

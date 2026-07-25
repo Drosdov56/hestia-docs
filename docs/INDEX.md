@@ -64,6 +64,7 @@ Porte d’entrée de **hestia-docs**. Aucun contenu dupliqué : renvois uniqueme
 | Inventaire Epics / Features | [backlog/BACKLOG.md](backlog/BACKLOG.md) |
 | Ordre d’implémentation | [backlog/ROADMAP.md](backlog/ROADMAP.md) |
 | Dépendances | [backlog/DEPENDANCES.md](backlog/DEPENDANCES.md) |
+| Clôture EPIC-001 | [backlog/execution/REPORT-CLOTURE-EPIC-001.md](backlog/execution/REPORT-CLOTURE-EPIC-001.md) |
 
 ## Documentation locale (hors ce dépôt)
 

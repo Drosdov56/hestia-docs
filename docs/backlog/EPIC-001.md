@@ -3,7 +3,8 @@
 | Attribut | Valeur |
 |----------|--------|
 | **Phase** | P0 |
-| **Statut** | À faire |
+| **Statut** | Livré |
+| **Clôture** | 2026-07-25 — [REPORT-CLOTURE-EPIC-001](execution/REPORT-CLOTURE-EPIC-001.md) |
 | **Dépôts** | `hestia-agent`, `hestia` (API contrat) |
 | **Bloque** | EPIC-002, EPIC-004, EPIC-011 |
 
@@ -100,6 +101,8 @@ Faire évoluer `hestia-agent` au-delà de la V1 infrastructure : collecter, norm
 - Health Agent inchangé / étendu sans casser V1 infra.
 - Runtime nœud : **Python 3** (stdlib `json`/`uuid`) fourni par l’Installer pour la normalisation (L3).
 
+**Statut done :** satisfaits à la clôture (2026-07-25) — détails et écarts dans [REPORT-CLOTURE-EPIC-001](execution/REPORT-CLOTURE-EPIC-001.md) et [CHECKLIST](execution/CHECKLIST-EPIC-001.md).
+
 ## Dossier d’exécution
 
-→ [execution/EXEC-EPIC-001.md](execution/EXEC-EPIC-001.md) · [CHECKLIST](execution/CHECKLIST-EPIC-001.md) · [TESTPLAN](execution/TESTPLAN-EPIC-001.md)
+→ [execution/EXEC-EPIC-001.md](execution/EXEC-EPIC-001.md) · [CHECKLIST](execution/CHECKLIST-EPIC-001.md) · [TESTPLAN](execution/TESTPLAN-EPIC-001.md) · [Clôture](execution/REPORT-CLOTURE-EPIC-001.md)

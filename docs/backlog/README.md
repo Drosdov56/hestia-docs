@@ -8,6 +8,8 @@
 Ce dossier est le **plan d’implémentation** dérivé exclusivement de la documentation de référence.  
 Aucune Epic sans source documentaire.
 
+**Clôture :** [EPIC-001](EPIC-001.md) = **Livré** (2026-07-25) — [rapport de clôture](execution/REPORT-CLOTURE-EPIC-001.md).
+
 ## Entrées
 
 | Document | Rôle |

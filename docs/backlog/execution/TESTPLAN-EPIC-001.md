@@ -1,7 +1,8 @@
 # TESTPLAN-EPIC-001 — Stratégie de test
 
 **Epic :** EPIC-001  
-**Référence :** [EXEC-EPIC-001.md](EXEC-EPIC-001.md)
+**Statut Epic :** Clôturée (2026-07-25) — banc §6.3 renseigné  
+**Référence :** [EXEC-EPIC-001.md](EXEC-EPIC-001.md) · [REPORT-CLOTURE-EPIC-001.md](REPORT-CLOTURE-EPIC-001.md)
 
 Objectif : valider l’implémentation **sans interprétation** — chaque cas a un résultat attendu observable.
 
@@ -159,11 +160,14 @@ Objectif : valider l’implémentation **sans interprétation** — chaque cas a
 
 | Champ | Valeur |
 |-------|--------|
-| Date | |
-| Nœud / commit Agent | |
-| Commit `hestia` | |
-| TR-01 … TR-04 | PASS / FAIL |
-| Notes | |
+| Date | 2026-07-25 |
+| Nœud / commit Agent | Banc équivalent (suites L0–L7) — pas de nœud SNZB terrain |
+| Commit `hestia` | Ingest L5 (DEV-001-L5) |
+| TR-01 | **PASS (banc)** — chaîne équivalent HA/MQTT mock → Agent → API ingest (L2–L5) |
+| TR-02 | **PASS (banc)** — file locale L6 ; durée WAN réelle 10+ min = E-L6-01 |
+| TR-03 | **PASS (banc)** — reprise + dédup L5/L6 |
+| TR-04 | **PASS** — NR `--health` L0 |
+| Notes | SNZB-06P24 / grace 15 min réelle = **E-L7-01** (ouverte). Dérogation FT terrain réelle documentée en CHECKLIST. |
 
 ---
 

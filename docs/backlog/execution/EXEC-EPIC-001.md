@@ -1,6 +1,7 @@
 # EXEC-EPIC-001 — Plan d’exécution Agent métier
 
 **Epic :** EPIC-001  
+**Statut :** Clôturée (2026-07-25) — [REPORT-CLOTURE-EPIC-001.md](REPORT-CLOTURE-EPIC-001.md)  
 **Phase backlog :** P0  
 **Bloque :** EPIC-002, EPIC-004, EPIC-011  
 
@@ -340,3 +341,4 @@ Parallélisation possible : **L5 (côté hestia)** dès que le schéma L3 est fi
 | Epic | [EPIC-001.md](../EPIC-001.md) |
 | Tests | [TESTPLAN-EPIC-001.md](TESTPLAN-EPIC-001.md) |
 | Checklist | [CHECKLIST-EPIC-001.md](CHECKLIST-EPIC-001.md) |
+| Clôture | [REPORT-CLOTURE-EPIC-001.md](REPORT-CLOTURE-EPIC-001.md) |

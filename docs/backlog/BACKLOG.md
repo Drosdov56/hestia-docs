@@ -3,7 +3,7 @@
 **IMP-000** · Chaque Feature apparaît **une seule fois**.  
 Détail et tâches : fichiers `EPIC-NNN.md`.
 
-Légende statut : `À faire` · `Partiel` · `Livré (hors scope)` · `Hors v1`
+Légende statut : `À faire` · `Partiel` · `Livré` · `Livré (hors scope)` · `Hors v1`
 
 ---
 
@@ -11,7 +11,7 @@ Légende statut : `À faire` · `Partiel` · `Livré (hors scope)` · `Hors v1`
 
 | Epic | Titre | Phase | Statut |
 |------|-------|-------|--------|
-| [EPIC-001](EPIC-001.md) | Agent métier — observation & synchronisation | P0 | À faire |
+| [EPIC-001](EPIC-001.md) | Agent métier — observation & synchronisation | P0 | Livré |
 | [EPIC-002](EPIC-002.md) | Backend — SoT équipements (Module 70) | P1 | À faire |
 | [EPIC-003](EPIC-003.md) | Hestia Admin — assistant de mise en service | P2 | À faire |
 | [EPIC-004](EPIC-004.md) | PoC — événement → information utile | P3 | À faire |
