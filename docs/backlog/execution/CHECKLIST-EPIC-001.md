@@ -61,10 +61,10 @@ Cocher uniquement lorsque le critère est **vérifié** (test ou revue), pas « 
 
 ### L6 — Retry + file (US-001.6 / US-001.7)
 
-- [ ] Backoff documenté et observé
-- [ ] File durable sur disque
-- [ ] Survive redémarrage Agent
-- [ ] Reprise VPS → complétude sans doublon
+- [x] Backoff documenté et observé
+- [x] File durable sur disque
+- [x] Survive redémarrage Agent
+- [x] Reprise VPS → complétude sans doublon
 
 ### L7 — Reachability (US-001.8)
 
@@ -103,6 +103,7 @@ Cocher uniquement lorsque le critère est **vérifié** (test ou revue), pas « 
 | E-L4-01 | FT-004/005 côté Serveur reportés à L5 — preuve locale via `events-outbound.jsonl` | DEV-001-L4 |
 | E-L5-01 | IT-SYNC-02..04 (file / retry / restart) reportés à L6 — L5 = envoi best-effort + dédup | DEV-001-L5 |
 | E-L5-02 | Token nœud à provisionner en prod (`ingest.node_token` / `HESTIA_INGEST_NODE_TOKEN` + `BACKEND_TOKEN`) | DEV-001-L5 |
+| E-L6-01 | IT-SYNC durée réelle « 1 min » API down non chronométrée — critères couverts par file + backoff + reprise mock | DEV-001-L6 |
 
 ---
 
