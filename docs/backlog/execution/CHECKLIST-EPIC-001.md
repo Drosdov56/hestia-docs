@@ -99,6 +99,7 @@ Cocher uniquement lorsque le critère est **vérifié** (test ou revue), pas « 
 | E-L1-01 | IT Mosquitto réel non exécuté sur poste Windows de dev (pas de `mosquitto_pub/sub`) — critères L1 couverts par mock `MQTT_SUB_CMD` | DEV-001-L1 |
 | E-L2-01 | IT HA réel non exécuté sur poste de dev — critères L2 couverts par mock MQTT + `HA_PROBE_CMD` | DEV-001-L2 |
 | E-L3-01 | FT-003 / IT-SYNC côté Serveur reportés à L5 — inspection schéma L3 faite en local (`events-normalized.jsonl`) | DEV-001-L3 |
+| E-L3-02 | Preuve Python 3 = nœud Ubuntu (module 20) ; stub WindowsApps ≠ validation plateforme | DEV-001-L3 |
 
 ---
 

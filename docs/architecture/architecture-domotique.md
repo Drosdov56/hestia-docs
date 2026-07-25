@@ -92,7 +92,7 @@ Plusieurs logements, plusieurs mini PC, plusieurs familles : chaque mini PC avec
 
 ADR-0005 (limiter les dépendances externes) s'applique à `client/` (PWA) et `core/` (API PHP) du dépôt **`hestia`** — le stack applicatif vanilla existant.
 
-Le nœud (mini PC) est un **périmètre distinct**, avec ses propres dépendances justifiées (Home Assistant, Docker, Mosquitto, etc. via `hestia-installer` ; runtime via `hestia-agent`). ADR-0005 ne s'y applique pas : pas de contradiction avec le principe existant. Home Assistant reste encapsulé derrière l'Agent : le code métier Hestia (`client/`, `core/`) ne dépend jamais directement de Home Assistant.
+Le nœud (mini PC) est un **périmètre distinct**, avec ses propres dépendances justifiées (Home Assistant, Docker, Mosquitto, **Python 3** via `hestia-installer` module 20 / `packages.conf`, runtime via `hestia-agent`). ADR-0005 ne s'y applique pas : pas de contradiction avec le principe existant. Home Assistant reste encapsulé derrière l'Agent : le code métier Hestia (`client/`, `core/`) ne dépend jamais directement de Home Assistant.
 
 ## 11. Prochaines étapes techniques
 

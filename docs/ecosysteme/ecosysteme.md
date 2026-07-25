@@ -92,7 +92,7 @@ flowchart LR
 #### `hestia-installer`
 
 - Scripts d'installation / désinstallation / backup / update / diagnostics du nœud
-- Modules ordonnés (préchecks, paquets, Docker, Home Assistant, MQTT, Zigbee, **déploiement** de l'Agent, systemd)
+- Modules ordonnés (préchecks, paquets dont **Python 3**, Docker, Home Assistant, MQTT, Zigbee, **déploiement** de l'Agent, systemd)
 - Ne contient **pas** le code source de l'Agent
 - Documentation limitée à l'installeur (voir son `docs/`)
 
@@ -101,6 +101,7 @@ flowchart LR
 - Binaire / daemon Linux natif supervisé par systemd
 - Couche d'abstraction entre Home Assistant et le serveur Hestia
 - Health, configuration, synchronisation, autonomie hors connexion
+- **Dépendance runtime :** Python 3 (stdlib `json`, `uuid`) pour la normalisation d’événements (EPIC-001 L3) — **installée et vérifiée** par `hestia-installer` (paquet `python3`, module 20)
 - Pas d'auto-mise à jour via GitHub : les mises à jour passent par **hestia-installer**
 - Documentation limitée à l'Agent (voir son `docs/`)
 
