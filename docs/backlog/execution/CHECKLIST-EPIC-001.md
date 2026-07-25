@@ -54,10 +54,10 @@ Cocher uniquement lorsque le critère est **vérifié** (test ou revue), pas « 
 
 ### L5 — Ingest (US-001.5)
 
-- [ ] Endpoint `hestia` authentifié
-- [ ] Agent envoie en sécurisé
-- [ ] Ack 2xx sur succès
-- [ ] Dédup `event_id` vérifiée
+- [x] Endpoint `hestia` authentifié
+- [x] Agent envoie en sécurisé
+- [x] Ack 2xx sur succès
+- [x] Dédup `event_id` vérifiée
 
 ### L6 — Retry + file (US-001.6 / US-001.7)
 
@@ -101,6 +101,8 @@ Cocher uniquement lorsque le critère est **vérifié** (test ou revue), pas « 
 | E-L3-01 | FT-003 / IT-SYNC côté Serveur reportés à L5 — inspection schéma L3 faite en local (`events-normalized.jsonl`) | DEV-001-L3 |
 | E-L3-02 | Preuve Python 3 = nœud Ubuntu (module 20) ; stub WindowsApps ≠ validation plateforme | DEV-001-L3 |
 | E-L4-01 | FT-004/005 côté Serveur reportés à L5 — preuve locale via `events-outbound.jsonl` | DEV-001-L4 |
+| E-L5-01 | IT-SYNC-02..04 (file / retry / restart) reportés à L6 — L5 = envoi best-effort + dédup | DEV-001-L5 |
+| E-L5-02 | Token nœud à provisionner en prod (`ingest.node_token` / `HESTIA_INGEST_NODE_TOKEN` + `BACKEND_TOKEN`) | DEV-001-L5 |
 
 ---
 
