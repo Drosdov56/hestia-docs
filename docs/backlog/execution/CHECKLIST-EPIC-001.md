@@ -34,9 +34,9 @@ Cocher uniquement lorsque le critère est **vérifié** (test ou revue), pas « 
 
 ### L2 — HA (US-001.1)
 
-- [ ] Source HA branchée (mécanisme documenté)
-- [ ] Changement entité test visible dans flux Agent
-- [ ] HA down → Agent up + log
+- [x] Source HA branchée (mécanisme documenté)
+- [x] Changement entité test visible dans flux Agent
+- [x] HA down → Agent up + log
 
 ### L3 — Normalisation (US-001.3)
 
@@ -97,6 +97,7 @@ Cocher uniquement lorsque le critère est **vérifié** (test ou revue), pas « 
 | ID | Description | Report |
 |----|-------------|--------|
 | E-L1-01 | IT Mosquitto réel non exécuté sur poste Windows de dev (pas de `mosquitto_pub/sub`) — critères L1 couverts par mock `MQTT_SUB_CMD` | DEV-001-L1 |
+| E-L2-01 | IT HA réel non exécuté sur poste de dev — critères L2 couverts par mock MQTT + `HA_PROBE_CMD` | DEV-001-L2 |
 
 ---
 
