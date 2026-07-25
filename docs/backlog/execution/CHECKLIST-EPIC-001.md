@@ -68,11 +68,11 @@ Cocher uniquement lorsque le critère est **vérifié** (test ou revue), pas « 
 
 ### L7 — Reachability (US-001.8)
 
-- [ ] `OFFLINE_GRACE` configurable (défaut 15 min)
-- [ ] Test grace courte OK
-- [ ] Événement offline émis
-- [ ] Événement online émis
-- [ ] Pas de SoT locale concurrente
+- [x] `OFFLINE_GRACE` configurable (défaut 15 min)
+- [x] Test grace courte OK
+- [x] Événement offline émis
+- [x] Événement online émis
+- [x] Pas de SoT locale concurrente
 
 ---
 
@@ -104,6 +104,7 @@ Cocher uniquement lorsque le critère est **vérifié** (test ou revue), pas « 
 | E-L5-01 | IT-SYNC-02..04 (file / retry / restart) reportés à L6 — L5 = envoi best-effort + dédup | DEV-001-L5 |
 | E-L5-02 | Token nœud à provisionner en prod (`ingest.node_token` / `HESTIA_INGEST_NODE_TOKEN` + `BACKEND_TOKEN`) | DEV-001-L5 |
 | E-L6-01 | IT-SYNC durée réelle « 1 min » API down non chronométrée — critères couverts par file + backoff + reprise mock | DEV-001-L6 |
+| E-L7-01 | Validation terrain SNZB / grace 15 min réelle reportée (TESTPLAN §6) — critères L7 couverts par grace courte mock | DEV-001-L7 |
 
 ---
 
