@@ -92,7 +92,7 @@ flowchart LR
 #### `hestia-installer`
 
 - Scripts d'installation / désinstallation / backup / update / diagnostics du nœud
-- Modules ordonnés (préchecks, paquets dont **Python 3**, Docker, Home Assistant, MQTT, Zigbee, **déploiement** de l'Agent, systemd)
+- Modules ordonnés (préchecks, paquets dont **Python 3** et **OpenSSL**, Docker, Home Assistant, MQTT, Zigbee, **déploiement** de l'Agent, systemd)
 - Ne contient **pas** le code source de l'Agent
 - Documentation limitée à l'installeur (voir son `docs/`)
 

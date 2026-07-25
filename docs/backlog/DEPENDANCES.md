@@ -49,6 +49,7 @@ flowchart TD
 |----|--------|--------|
 | Prérequis nœud | Tout | Sans HA/MQTT/Agent infra, aucune chaîne événement |
 | Python 3 (nœud) | EPIC-001 L3+ | Normalisation Agent (`json`/`uuid`) — paquet `python3` via Installer module 20 |
+| OpenSSL (nœud) | Mosquitto / INT-001 | Génération secrets MQTT — paquet `openssl` via Installer module 20 |
 | EPIC-001 | EPIC-002, 004, 011 | Sans observation/sync Agent, pas de SoT runtime |
 | EPIC-002 | EPIC-003, 004, 008 | Sans modèle `Equipment`, pas d’Admin ni PoC métier |
 | EPIC-004 | EPIC-005, 006 | PoC valide le chemin avant généralisation |
@@ -58,7 +59,7 @@ flowchart TD
 
 | Epic | Prérequis directs |
 |------|-------------------|
-| EPIC-001 | Nœud livré (Installer, INT-001, Agent infra) ; **Python 3** (`json`/`uuid`) garanti par Installer module 20 |
+| EPIC-001 | Nœud livré (Installer, INT-001, Agent infra) ; **Python 3** (`json`/`uuid`) et **OpenSSL** (secrets MQTT) garantis par Installer module 20 |
 | EPIC-002 | EPIC-001 (contrat sync minimal) |
 | EPIC-003 | EPIC-002 |
 | EPIC-004 | EPIC-001 + EPIC-002 (équipement provisionné ou stub) |

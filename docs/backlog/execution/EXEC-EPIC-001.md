@@ -189,6 +189,7 @@ Interdit dans ce payload : nom logique métier, pièce, identité personne, « i
 |-----------|------------|
 | Nœud Ubuntu + Docker + HA + Mosquitto + Z2M | FUNCTIONAL-VISION §9 |
 | **Python 3** (`json`, `uuid`) — paquet `python3` | Installer `packages.conf` module 20 ; precheck + final-check |
+| **OpenSSL** — paquet `openssl` | Installer `packages.conf` module 20 ; precheck + final-check (secrets MQTT mod. 50) |
 | INT-001 HA ↔ MQTT | FUNCTIONAL-VISION §3 |
 | Agent infra V1 (daemon, health, conf, systemd) | `hestia-agent` ARCHITECTURE.md |
 | Installer déploie l’Agent | Module 70 / ecosysteme |
