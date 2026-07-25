@@ -40,3 +40,7 @@ Aucune décision architecturale, aucun invariant, aucun concept fondateur ne doi
 ## Glossaire
 
 Une définition officielle par concept : **[docs/gouvernance/GLOSSAIRE.md](docs/gouvernance/GLOSSAIRE.md)**.
+
+## Backlog (pilotage développement)
+
+→ **[docs/backlog/README.md](docs/backlog/README.md)**

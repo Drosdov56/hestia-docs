@@ -56,6 +56,15 @@ Porte d’entrée de **hestia-docs**. Aucun contenu dupliqué : renvois uniqueme
 | Historique non normatif | [archive/](archive/) |
 | Audits pré-migration | [audits/](audits/) |
 
+## Pilotage développement
+
+| Besoin | Document |
+|--------|----------|
+| **Backlog officiel** | [backlog/README.md](backlog/README.md) |
+| Inventaire Epics / Features | [backlog/BACKLOG.md](backlog/BACKLOG.md) |
+| Ordre d’implémentation | [backlog/ROADMAP.md](backlog/ROADMAP.md) |
+| Dépendances | [backlog/DEPENDANCES.md](backlog/DEPENDANCES.md) |
+
 ## Documentation locale (hors ce dépôt)
 
 | Dépôt | Entrée |
