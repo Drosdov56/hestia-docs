@@ -47,10 +47,10 @@ Cocher uniquement lorsque le critère est **vérifié** (test ou revue), pas « 
 
 ### L4 — Sélection (US-001.4)
 
-- [ ] Allowlist / denylist configurables
-- [ ] Signal hors policy non envoyé
-- [ ] Signal in policy envoyé / enfilé
-- [ ] Revue : aucune règle familiale
+- [x] Allowlist / denylist configurables
+- [x] Signal hors policy non envoyé
+- [x] Signal in policy envoyé / enfilé
+- [x] Revue : aucune règle familiale
 
 ### L5 — Ingest (US-001.5)
 
@@ -100,6 +100,7 @@ Cocher uniquement lorsque le critère est **vérifié** (test ou revue), pas « 
 | E-L2-01 | IT HA réel non exécuté sur poste de dev — critères L2 couverts par mock MQTT + `HA_PROBE_CMD` | DEV-001-L2 |
 | E-L3-01 | FT-003 / IT-SYNC côté Serveur reportés à L5 — inspection schéma L3 faite en local (`events-normalized.jsonl`) | DEV-001-L3 |
 | E-L3-02 | Preuve Python 3 = nœud Ubuntu (module 20) ; stub WindowsApps ≠ validation plateforme | DEV-001-L3 |
+| E-L4-01 | FT-004/005 côté Serveur reportés à L5 — preuve locale via `events-outbound.jsonl` | DEV-001-L4 |
 
 ---
 
