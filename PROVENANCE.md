@@ -1,5 +1,8 @@
 # Provenance Git — migration vers hestia-docs
 
+> **Document historique de migration.**  
+> Il décrit la provenance initiale des fichiers au moment de la création de `hestia-docs` ; il ne définit pas l’état documentaire courant.
+
 Les fichiers de ce dépôt ont été **copiés** depuis les dépôts sources à la date de migration.
 L’historique complet de chaque fichier reste consultable dans le dépôt d’origine (`git log --follow -- <chemin>`).
 

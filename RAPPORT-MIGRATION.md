@@ -1,5 +1,8 @@
 # Rapport final — Migration documentaire vers hestia-docs
 
+> **Rapport historique de migration.**  
+> Ce document clôture la migration initiale vers `hestia-docs`. La gouvernance et l’état courant doivent désormais être lus dans `docs/INDEX.md`, `docs/backlog/` et `docs/gouvernance/`.
+
 **Date de clôture :** 2026-07-25
 
 ---
@@ -8,14 +11,14 @@
 
 **MIGRATION DOCUMENTAIRE :** TERMINÉE
 
-**ARCHITECTURE DOCUMENTAIRE :** GELÉE
+**ARCHITECTURE DOCUMENTAIRE :** GELÉE à la date de migration
 
 **SOURCE DE VÉRITÉ :** hestia-docs  
 https://github.com/Drosdov56/hestia-docs
 
 **Gouvernance :** [DECISION-0001-DOCUMENTATION.md](docs/gouvernance/DECISION-0001-DOCUMENTATION.md)
 
-Aucune action restante.
+Aucune action restante **dans le chantier de migration initial**.
 
 ---
 
