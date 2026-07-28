@@ -50,6 +50,77 @@ Prochain chantier : AUTO-002F.
 
 ---
 
+# INFRASTRUCTURE (FACTS UNIQUEMENT — sources dépôt)
+
+> Ne pas confondre **VPS Ionos** (`/var/www/hestia`) et **nœud mini-PC** (`/opt/hestia`).  
+> Sources : `hestia/docs/deployment.md`, `hestia/docs/CONTEXTE-PROJET.md`, `hestia-docs/docs/ecosysteme/ecosysteme.md`, `hestia-docs/docs/architecture/architecture-domotique.md`, ADR-023, `hestia-installer` (`/opt/hestia/*`), `hestia-agent/systemd/hestia-agent.service`, AUTO-001 exécution, `hestia-installer/docs/releases/v1.0.0.md`.
+
+## Machine A — Serveur applicatif (VPS)
+
+| Champ | Valeur documentée |
+|-------|-------------------|
+| Rôle | Serveur Hestia : PWA + API REST + (ADR-023) `hestia-ws-relay` |
+| Hébergeur | Ionos — IP `217.154.6.120` |
+| URL publique | `https://hestia.serpette.fr` |
+| OS | NON DOCUMENTÉ (PHP/Apache documentés ; version Ubuntu VPS NON DOCUMENTÉE dans les dépôts) |
+| Nom d'hôte | NON DOCUMENTÉ |
+| Chemins | Dépôt `/var/www/hestia` ; DocumentRoot `/var/www/hestia/core/public` ; relay `/var/www/hestia/services/ws-relay` |
+| Dépôt Git | `hestia` |
+| Apache | Oui (2.4, prod) |
+| PHP | Oui (API ; CLI pour relay) |
+| WS Relay | Oui — unit `hestia-ws-relay.service`, loopback `127.0.0.1:8765` |
+| hestia-agent | Non (pas sur le VPS) |
+| Home Assistant | Non |
+| Mosquitto | Non |
+| Zigbee2MQTT | Non |
+| SSH | `ssh -p 2222 root@217.154.6.120` |
+
+## Machine B — Nœud (mini-PC foyer)
+
+| Champ | Valeur documentée |
+|-------|-------------------|
+| Rôle | Nœud local autonome : Agent + HA + MQTT + Zigbee2MQTT |
+| Emplacement | Mini-PC BMAX (réf. terrain) |
+| OS | Ubuntu Server **26.04 LTS** x86_64 |
+| Nom d'hôte documenté | `hestia` (release installer / rapport J1 Agent) |
+| `node_id` documenté | `hestia-bmax` (suivi AUTO-001) — **distinct** du hostname |
+| IP LAN documentée | `10.80.157.203` |
+| Chemins produit | `/opt/hestia/agent`, `/opt/hestia/homeassistant`, `/opt/hestia/mosquitto`, `/opt/hestia/zigbee2mqtt` |
+| Dépôts Git | Runtime : `hestia-agent` ; déploiement : `hestia-installer` |
+| Apache | Non (périmètre VPS) |
+| PHP API Hestia | Non |
+| WS Relay | Non (client WS sortant côté Agent uniquement) |
+| hestia-agent | Oui — `/opt/hestia/agent`, unit `hestia-agent.service` |
+| Home Assistant | Oui — conteneur / config sous `/opt/hestia/homeassistant` |
+| Mosquitto | Oui — `/opt/hestia/mosquitto` |
+| Zigbee2MQTT | Oui — `/opt/hestia/zigbee2mqtt` |
+| SSH | Documenté comme accessible vers l’hôte `hestia` / IP `10.80.157.203` (ex. `ssh … hestia`) ; **port SSH nœud NON DOCUMENTÉ** (défaut OpenSSH implicite dans les exemples) |
+
+## Anti-confusion obligatoire
+
+1. **`/var/www/hestia` = VPS Ionos** (interface Web + API).  
+2. **`/opt/hestia` = mini-PC nœud** (Agent, HA, MQTT, Z2M).  
+3. L’hôte nommé **`hestia` (Ubuntu 26.04, `/opt/hestia`) est le mini-PC**, **pas** le VPS.  
+4. Pour vérifier le déploiement de l’**interface Web** : SSH **VPS** (`2222` / `217.154.6.120`), pas le mini-PC.
+
+## Schéma de communication (documenté)
+
+```text
+Navigateur / Apps Hestia
+        │  HTTPS (same-origin)
+        ▼
+Apache 2.4 (VPS) ──► PWA + API PHP (/var/www/hestia)
+        │
+        ├── /api/v1/*          → PHP (métier, sessions, tickets)
+        └── /api/v1/.../ws     → proxy_wstunnel → hestia-ws-relay (127.0.0.1:8765)
+                                      ▲
+Agent (mini-PC) ── HTTPS heartbeat / ingest ──► API
+Agent (mini-PC) ── WSS sortant ───────────────► relay (terminal)
+Agent ←→ Home Assistant / Mosquitto / Zigbee2MQTT  (locaux au nœud)
+```
+
+---
+
 # DÉPÔTS
 
 ## hestia
