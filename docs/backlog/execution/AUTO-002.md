@@ -34,7 +34,7 @@ Permettre à un administrateur d’exploiter un parc de mini-PC Hestia **via le 
 
 ## 4. ADR prévues
 
-ADR-021 (identité nœud) · ADR-022 (commandes) · ADR-023 (terminal WS sortant) · ADR-024 (artifacts) · ADR-025 (frontière Agent/métier)
+ADR-021 (identité nœud) · ADR-022 (commandes) · **ADR-023 (terminal WS sortant) — Accepté** · ADR-024 (artifacts) · ADR-025 (frontière Agent/métier)
 
 ## 5. Critères de clôture (rappel spec §9)
 

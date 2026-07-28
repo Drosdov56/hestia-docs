@@ -591,7 +591,7 @@ flowchart TB
 |-----|-------|--------|
 | **ADR-021** | Identité et credentials nœud (`node_id`, token, révocation, ≠ `hestia_device_id`) | Avant 002F |
 | **ADR-022** | Modèle commandes distantes (classes risque, idempotence, file) | Avant 002E |
-| **ADR-023** | Terminal distant sans SSH entrant (WS sortant Agent) | Avant 002E-2 |
+| **ADR-023** | Terminal distant sans SSH entrant (WS sortant Agent) — **Accepté** | Avant 002E-2 |
 | **ADR-024** | Artefacts et diagnostics (redaction, rétention, taille) | Avant 002D |
 | **ADR-025** | Frontière Agent / métier / HA (ce que l’Agent ne fera jamais) | Revue 002 ouverture |
 

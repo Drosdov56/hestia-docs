@@ -48,6 +48,7 @@ Porte d’entrée de **hestia-docs**. Aucun contenu dupliqué : renvois uniqueme
 |-----|-------|
 | [ADR-020](adr/ADR-020%20-%20Positionnement%20de%20Hestia%20vis-%C3%A0-vis%20de%20Home%20Assistant.md) | Positionnement vs Home Assistant |
 | [ADR-018](adr/ADR-018-architecture-domotique-agent-passerelle.md) | Architecture agent / passerelle |
+| [ADR-023](adr/ADR-023-terminal-distant-websocket-sortant.md) | Terminal distant (WS sortant, relay dédié) |
 | [ADR-004](adr/ADR-004-mise-en-service-equipements.md) | Mise en service équipements |
 | [ADR-005](adr/ADR-005-cycle-vie-equipements.md) | Cycle de vie équipements |
 
