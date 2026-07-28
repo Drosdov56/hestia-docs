@@ -44,9 +44,9 @@ Statut général : quatre dépôts Git propres et synchronisés avec origin/main
 
 Chantier actif : AUTO-002 — supervision et administration des nœuds.
 
-Dernier chantier terminé : remise en état Git (consolidation documentaire + AUTO-001 code).
+Dernier chantier terminé : AUTO-002A — inventaire admin nœud (registre + API).
 
-Prochain chantier : AUTO-002A — inventaire du nœud.
+Prochain chantier : AUTO-002B — tableau de bord nœuds.
 
 ---
 
@@ -54,7 +54,7 @@ Prochain chantier : AUTO-002A — inventaire du nœud.
 
 ## hestia
 
-HEAD : `7c1d8c5`  
+HEAD : `ec501f4`  
 Working tree : clean  
 État : synchronisé origin/main
 
@@ -78,7 +78,7 @@ Working tree : clean
 
 ## hestia-docs
 
-HEAD : `074bccd`  
+HEAD : `512139a`  
 Working tree : clean  
 État : synchronisé origin/main
 
@@ -107,7 +107,6 @@ Working tree : clean
 
 - Responsable PROJECT-STATE à renseigner.
 - G10 cold boot secteur — en attente séparée.
-- AUTO-002A à démarrer.
 
 ---
 
@@ -121,9 +120,9 @@ Working tree : clean
 
 Objectifs immédiats :
 
-1. Lire la spécification AUTO-002.
-2. Ouvrir AUTO-002A (inventaire nœud).
-3. Définir le premier lot d'implémentation dans `hestia` / `hestia-agent`.
+1. Démarrer AUTO-002B (tableau de bord parc + fiche nœud).
+2. S'appuyer sur l'API admin 002A (`/api/v1/admin/nodes`).
+3. UI admin dans le module PWA existant.
 
 ---
 
@@ -142,4 +141,5 @@ Objectifs immédiats :
 | Date | Résumé | Décisions | Commit(s) | SHA | Résultat |
 |------|--------|-----------|-----------|-----|----------|
 | 2026-07-28 | Continuité IA officialisée | PROJECT-STATE + PROMPT-REPRISE | gouvernance | `28222a5` | OK |
-| 2026-07-28 | Remise en état Git 4 dépôts | 10 commits atomiques | H1–H4, I1, A1, D1–D4 | voir DÉPÔTS | working trees clean |
+| 2026-07-28 | Remise en état Git 4 dépôts | 10 commits atomiques | H1–H4, I1, A1, D1–D4 | voir DÉPÔTS | OK |
+| 2026-07-28 | AUTO-002A inventaire nœud | Registre + API admin | hestia | `ec501f4` | 10+11+11 tests API OK |
