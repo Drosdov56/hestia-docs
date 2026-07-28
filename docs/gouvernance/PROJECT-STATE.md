@@ -78,7 +78,7 @@ Working tree : clean
 
 ## hestia-docs
 
-HEAD : *(après commit gouvernance ci-dessous)*  
+HEAD : `1d0415b`  
 Working tree : clean  
 État : synchronisé origin/main
 
