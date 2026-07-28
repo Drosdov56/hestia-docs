@@ -4,7 +4,7 @@
 |----------|--------|
 | **Lot** | AUTO-002 |
 | **Spécification d’architecture (normative)** | [`docs/architecture/AUTO-002-supervision-administration-noeuds.md`](../../architecture/AUTO-002-supervision-administration-noeuds.md) |
-| **Statut** | **Ouvert** — 002A→002E livrés ; 002F restant |
+| **Statut** | **Ouvert** — 002A→002E **faits / validés terrain** ; 002F restant |
 | **Prérequis** | AUTO-001 (A→F) terminé |
 | **Dépôts** | `hestia`, `hestia-agent`, `hestia-docs` |
 | **Alignement** | EPIC-011 (administration distante) |
@@ -23,8 +23,8 @@ Permettre à un administrateur d’exploiter un parc de mini-PC Hestia **via le 
 | AUTO-002B | Tableau de bord | Fait |
 | AUTO-002C | Observabilité | Fait |
 | AUTO-002D | Diagnostics | Fait |
-| AUTO-002E | Administration distante | E-1 + E-2 livrés (WS relay) |
-| AUTO-002F | Cycle de vie du nœud | À faire |
+| AUTO-002E | Administration distante | **Fait / validé terrain** (2026-07-28 soir) |
+| AUTO-002F | Cycle de vie du nœud | À faire (prochaine session) |
 
 ## 3. Ordre de développement recommandé
 
@@ -49,7 +49,16 @@ ADR-021 (identité nœud) · ADR-022 (commandes) · **ADR-023 (terminal WS sorta
 
 | Session | Contenu | Verdict |
 |---------|---------|---------|
-| 2026-07-28 | ADR-023 + API sessions + ws-relay + Agent + UI + ops | Conception figée ; code livré (composer install VPS restant) |
+| 2026-07-28 | ADR-023 + API sessions + ws-relay + Agent + UI + ops | Conception figée ; code livré |
+| 2026-07-28 (soir) | Validation terrain complète E-1+E-2 + correctifs cycle de vie / SPA / reports | **AUTO-002E CLÔTURÉ** — terminal + reconnexion OK sur `hestia-bmax` |
+
+### SHA de clôture AUTO-002E (soir)
+
+| Dépôt | SHA |
+|-------|-----|
+| hestia | `6a451f9632ebf020e74d7742db18864c04350200` |
+| hestia-agent | `cc9e315b7b3a524f9afcb2629e64f0cefcf6769b` |
+| hestia-installer | `c7460ba706fd2f4eda84536576007a8f01b0d369` |
 
 ## 7. Lien amont
 

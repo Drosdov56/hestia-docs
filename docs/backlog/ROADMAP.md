@@ -64,7 +64,17 @@ EPIC-001 → EPIC-002 → EPIC-003
 
 **Stabilisation terrain J1 (hors nouveau jalon) :** **clôturée** (2026-07-27) — cold boot / reboot / OPS — preuves dans `execution/AUTO-001.md` ; résumé Agent : `hestia-agent/docs/REPORT-J1-DEPLOY-HEALTH.md`. Enchaînement produit **J1 → J2** inchangé.
 
-**AUTO-001 (présence nœud) :** **TERMINÉE / VALIDÉE** (2026-07-27, BMAX) — voir `execution/AUTO-001.md` (source de vérité). Prochaine étape : **AUTO-002**. N’ajoute **pas** de jalon J*.
+**AUTO-001 (présence nœud) :** **TERMINÉE / VALIDÉE** (2026-07-27, BMAX) — voir `execution/AUTO-001.md` (source de vérité).
+
+**AUTO-002E (admin distante + terminal WS) :** **TERMINÉE / VALIDÉE TERRAIN** (2026-07-28 soir). Prochaine étape produit : **AUTO-002F** (quand explicitement demandé).
+
+---
+
+## Epics futures (backlog — non démarrées)
+
+| Epic | Intitulé | Notes |
+|------|----------|--------|
+| **UI-001** | Refonte ergonomique de l’administration des nœuds | Terminal plein écran ; meilleure présentation des commandes ; interprétation ANSI ; états de connexion ; indicateurs ; responsive ; cohérence graphique. **Ne pas démarrer sans demande explicite.** |
 
 ---
 
