@@ -515,19 +515,24 @@ Gérer le **cycle de vie autoritaire** : enrôlement, activation, suspension, r�
 
 ### 4.2 Terminal distant sécurisé (002E-2)
 
+> **Décision :** [ADR-023](../adr/ADR-023-terminal-distant-websocket-sortant.md) — Accepté.
+
 ```text
 Agent                          Serveur                         Admin UI
   │                               │                                │
-  │── WS connect OUT ────────────►│                                │
-  │◄── session_open (cmd) ────────│◄── POST session/start ─────────│
-  │── chunk stdout ──────────────►│── SSE/WS ─────────────────────►│
+  │── WS connect OUT ────────────►│ hestia-ws-relay                │
+  │◄── session_open (cmd) ────────│◄── POST shell_session ─────────│
+  │── chunk stdout ──────────────►│── WSS ────────────────────────►│
   │◄── chunk stdin ───────────────│◄── keystroke ──────────────────│
   │── session_close ─────────────►│                                │
 ```
 
-- Agent lance PTY **allowlist** (shell restreint ou commandes prédéfinies).
+- Relay dédié `services/ws-relay/` (PHP CLI + bibliothèque WS mature) — **aucune logique métier**.
+- API REST = source de vérité (sessions, tickets, audit).
+- Agent lance PTY **allowlist** (shell restreint).
 - Pas de bind port entrant sur le nœud.
 - Session horodatée, auditée, timeout idle.
+- Apache proxifie WSS same-origin vers le relay loopback.
 
 ### 4.3 Mises à jour
 
