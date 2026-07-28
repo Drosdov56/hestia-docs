@@ -18,7 +18,7 @@ Aucune Epic sans source documentaire.
 | [ROADMAP.md](ROADMAP.md) | Ordre d’implémentation |
 | [DEPENDANCES.md](DEPENDANCES.md) | Graphe des dépendances |
 | [EPIC-001.md](EPIC-001.md) … [EPIC-014.md](EPIC-014.md) | Détail par Epic |
-| [execution/](execution/) | Dossiers d’exécution (prêts pour développement) |
+| [execution/](execution/) | Dossiers d’exécution produit (EPIC clôturées, validations terrain, lots AUTO ouverts) |
 
 ## Hiérarchie
 

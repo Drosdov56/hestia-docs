@@ -9,8 +9,9 @@ Répond à : *Comment fonctionne Hestia dans la pratique (phases, acteurs, PoC) 
 |-----------------|----------|
 | Pourquoi / invariants | [Constitution](../constitution/HESTIA%20-%20DOCUMENT%20DE%20RÉFLEXION%20ARCHITECTURALE.md) |
 | Définitions | [GLOSSAIRE.md](../gouvernance/GLOSSAIRE.md) |
-| Pilotage Installer | `hestia-installer` → [ROADMAP.md](https://github.com/Drosdov56/hestia-installer/blob/main/docs/ROADMAP.md) |
-| Travaux techniques Installer | `hestia-installer` → [BACKLOG.md](https://github.com/Drosdov56/hestia-installer/blob/main/docs/BACKLOG.md) |
+| Pilotage produit | [ROADMAP.md](../backlog/ROADMAP.md) |
+| Backlog produit | [BACKLOG.md](../backlog/BACKLOG.md) |
+| Travaux techniques Installer | `hestia-installer` → `docs/BACKLOG.md` |
 | Spec cycle de vie équipements | [70-cycle-vie-equipements.md](../equipements/70-cycle-vie-equipements.md) |
 | ADR équipements | [ADR-004](../adr/ADR-004-mise-en-service-equipements.md), [ADR-005](../adr/ADR-005-cycle-vie-equipements.md) |
 
@@ -38,7 +39,7 @@ L’objectif n’est **pas** de collecter des événements pour eux-mêmes, mais
 
 - un foyer · une machine · un administrateur · services limités ;
 - simplicité opérationnelle, charge cognitive minimale ;
-- **Hestia** = seule couche visible pour l’administrateur du nœud ;
+- **Hestia** = interface nominale de l’administration fonctionnelle du nœud ;
 - Home Assistant et Zigbee2MQTT = backends techniques ([ADR-004](../adr/ADR-004-mise-en-service-equipements.md)).
 ---
 
@@ -161,7 +162,7 @@ Hub familial / Exploitation
   Information utile pour l’humain
 ```
 
-Détail des responsabilités : [ADR-004](../adr/ADR-004-mise-en-service-equipements.md), [ADR-005](../adr/ADR-005-cycle-vie-equipements.md), [ROADMAP](../../../hestia-installer/docs/ROADMAP.md).
+Détail des responsabilités : [ADR-004](../adr/ADR-004-mise-en-service-equipements.md), [ADR-005](../adr/ADR-005-cycle-vie-equipements.md), [ROADMAP](../backlog/ROADMAP.md).
 
 ---
 
@@ -288,9 +289,9 @@ Agent métier · Backend · Hub · formulation de l’information utile · notif
 
 | Document | Rôle |
 |----------|------|
-| [ROADMAP](../../../hestia-installer/docs/ROADMAP.md) | Où en est-on ? (phases, %) |
+| [ROADMAP](../backlog/ROADMAP.md) | Où en est-on ? (phases, jalons, ordre produit) |
 | **FUNCTIONAL-VISION** (ici) | Comment ça fonctionne ? (vision) |
-| [BACKLOG](../../../hestia-installer/docs/BACKLOG.md) | Quoi construire techniquement ? |
+| [BACKLOG](../backlog/BACKLOG.md) | Quoi construire côté produit ? |
 | [ADR/](../adr/) | Quelles décisions sont figées ? |
 
 Pas de duplication des checklists techniques ni des lots ROADMAP.
@@ -299,4 +300,4 @@ Pas de duplication des checklists techniques ni des lots ROADMAP.
 
 ## 17. Références
 
-[ROADMAP](../../../hestia-installer/docs/ROADMAP.md) · [ADR-003](../../../hestia-installer/docs/ADR/ADR-003-architecture-reseau-pile-domotique.md) · [ADR-004](../adr/ADR-004-mise-en-service-equipements.md) · [ADR-005](../adr/ADR-005-cycle-vie-equipements.md) · [ADR-007](../../../hestia-installer/docs/ADR/ADR-007-perimetre-v1.md) · [Module 70](../equipements/70-cycle-vie-equipements.md) · [SNZB-06P24](../modeles/capteurs/SNZB-06P24.md) · [BACKLOG](../../../hestia-installer/docs/BACKLOG.md) (UX-002, UX-003)
+[ROADMAP](../backlog/ROADMAP.md) · [ADR-003](../../../hestia-installer/docs/ADR/ADR-003-architecture-reseau-pile-domotique.md) · [ADR-004](../adr/ADR-004-mise-en-service-equipements.md) · [ADR-005](../adr/ADR-005-cycle-vie-equipements.md) · [ADR-007](../../../hestia-installer/docs/ADR/ADR-007-perimetre-v1.md) · [Module 70](../equipements/70-cycle-vie-equipements.md) · [SNZB-06P24](../modeles/capteurs/SNZB-06P24.md) · [BACKLOG](../backlog/BACKLOG.md) (EPIC et séquencement produit)

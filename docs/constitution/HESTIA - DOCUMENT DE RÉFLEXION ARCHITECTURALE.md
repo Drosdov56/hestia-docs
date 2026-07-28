@@ -2139,6 +2139,8 @@ Cet invariant protège Hestia contre l'obsolescence technologique.
 
 ### IF-012 — La simplicité est une exigence architecturale.
 
+La simplicité prime sur la sophistication.
+
 La complexité ne doit jamais être recherchée pour elle-même.
 
 Chaque nouveau composant.

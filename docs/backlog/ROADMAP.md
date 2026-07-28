@@ -62,6 +62,10 @@ EPIC-001 → EPIC-002 → EPIC-003
 | J6 | Décision explicable sur informations utiles | MODELE-DECISION | — |
 | J7 | Habitat + foyer structurés sans dépendre des capteurs | MODELE-HABITAT, MODELE-FOYER | — |
 
+**Stabilisation terrain J1 (hors nouveau jalon) :** **clôturée** (2026-07-27) — cold boot / reboot / OPS — preuves dans `execution/AUTO-001.md` ; résumé Agent : `hestia-agent/docs/REPORT-J1-DEPLOY-HEALTH.md`. Enchaînement produit **J1 → J2** inchangé.
+
+**AUTO-001 (présence nœud) :** **TERMINÉE / VALIDÉE** (2026-07-27, BMAX) — voir `execution/AUTO-001.md` (source de vérité). Prochaine étape : **AUTO-002**. N’ajoute **pas** de jalon J*.
+
 ---
 
 ## Hors séquence / ne pas anticiper

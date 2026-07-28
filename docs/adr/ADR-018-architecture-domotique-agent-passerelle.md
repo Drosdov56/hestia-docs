@@ -24,4 +24,4 @@ ADR-0005 (limiter les dépendances externes) ne s'applique pas à l'agent domoti
 
 - Le schéma 4 couches d'ADR-0002 / `architecture.md` est complété par la **passerelle** comme cinquième composant réel (mise à jour associée à cet ADR).
 - Les modules `home` et `cameras` déjà présents dans `catalogue.json` (actuellement contenu statique / démo) sont les futurs points d'intégration de cette architecture côté PWA — pas de nouveau module à créer pour l'instant, juste un futur chantier d'implémentation.
-- Détail technique complet : `docs/produit/architecture-domotique.md`.
+- Détail technique complet : `docs/architecture/architecture-domotique.md`.

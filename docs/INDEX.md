@@ -19,6 +19,8 @@ Porte d’entrée de **hestia-docs**. Aucun contenu dupliqué : renvois uniqueme
 | Flux domotique / passerelle | [architecture-domotique.md](architecture/architecture-domotique.md) |
 | Carte des modèles conceptuels | [ARCHITECTURE-CONCEPTUELLE.md](modeles/ARCHITECTURE-CONCEPTUELLE.md) |
 | Vision fonctionnelle | [FUNCTIONAL-VISION.md](vision/FUNCTIONAL-VISION.md) |
+| **Reconnexion autonome nœud ↔ serveur (AUTO-001)** | [Spécification](architecture/AUTO-001-reconnection-autonome-noeud.md) · [Revue d’architecture](architecture/AUTO-001-revue-architecture.md) · [Suivi d’exécution](backlog/execution/AUTO-001.md) |
+| Vocabulaire nœud (`node_id`) | [GLOSSAIRE.md](gouvernance/GLOSSAIRE.md) § Identité |
 
 ## Modèles conceptuels
 
@@ -71,5 +73,15 @@ Porte d’entrée de **hestia-docs**. Aucun contenu dupliqué : renvois uniqueme
 | Dépôt | Entrée |
 |-------|--------|
 | hestia | `docs/` du dépôt applicatif |
-| hestia-installer | `docs/INDEX.md` |
+| hestia-installer | `docs/INDEX.md` — installation, exploitation nœud, backlog technique local |
 | hestia-agent | `docs/ARCHITECTURE.md` |
+
+### OPS nœud (hors hestia-docs)
+
+| Besoin | Document |
+|--------|----------|
+| **OPS-001** — exploitation / `hestia-ops`, résilience, cold boot | Dépôt **hestia-installer** → `docs/INSTALL.md` (procédure locale) |
+| Distinction admin fonctionnelle vs OPS | [GLOSSAIRE.md](gouvernance/GLOSSAIRE.md) § Administration |
+
+> Source de vérité produit : `vision`, `backlog`, `roadmap` et `validation terrain` sont portés par ce dépôt.  
+> Les dépôts de code conservent uniquement leur documentation locale d’implémentation, d’exploitation ou de runtime.

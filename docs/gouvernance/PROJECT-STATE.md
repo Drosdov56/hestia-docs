@@ -40,13 +40,13 @@ En cas de divergence :
 
 # ÉTAT GLOBAL
 
-Statut général : consolidation documentaire prête à committer ; AUTO-001 clos ; AUTO-002 ouvert.
+Statut général : quatre dépôts Git propres et synchronisés avec origin/main.
 
-Chantier actif : finalisation Git consolidation documentaire trans-dépôts.
+Chantier actif : AUTO-002 — supervision et administration des nœuds.
 
-Dernier chantier terminé : gouvernance documentaire trans-dépôts.
+Dernier chantier terminé : remise en état Git (consolidation documentaire + AUTO-001 code).
 
-Prochain chantier : AUTO-002 — supervision et administration des nœuds.
+Prochain chantier : AUTO-002A — inventaire du nœud.
 
 ---
 
@@ -54,33 +54,33 @@ Prochain chantier : AUTO-002 — supervision et administration des nœuds.
 
 ## hestia
 
-HEAD : `14513ae`  
-Working tree : modifié, non commité (doc + code Nodes)  
-État : en attente commit/push
+HEAD : `7c1d8c5`  
+Working tree : clean  
+État : synchronisé origin/main
 
 ---
 
 ## hestia-installer
 
-HEAD : `33eaf93`  
-Working tree : modifié, non commité (doc)  
-État : en attente commit/push
+HEAD : `72c004a`  
+Working tree : clean  
+État : synchronisé origin/main
 
 ---
 
 ## hestia-agent
 
-HEAD : `b5c7bed`  
-Working tree : modifié, non commité (doc)  
-État : en attente commit/push
+HEAD : `b5e0361`  
+Working tree : clean  
+État : synchronisé origin/main
 
 ---
 
 ## hestia-docs
 
-HEAD : `6483054`  
-Working tree : modifié + non suivi, non commité  
-État : en attente commit/push
+HEAD : `074bccd`  
+Working tree : clean  
+État : synchronisé origin/main
 
 ---
 
@@ -105,16 +105,15 @@ Working tree : modifié + non suivi, non commité
 
 # POINTS OUVERTS
 
-- Commits atomiques + push `origin/main` sur les 4 dépôts.
-- Séparation commits doc / code AUTO-001 dans `hestia`.
 - Responsable PROJECT-STATE à renseigner.
 - G10 cold boot secteur — en attente séparée.
+- AUTO-002A à démarrer.
 
 ---
 
 # BLOCAGES
 
-- Working trees sales sur les 4 dépôts — ne pas démarrer AUTO-002 avant commit/push propre.
+- Aucun.
 
 ---
 
@@ -122,9 +121,9 @@ Working tree : modifié + non suivi, non commité
 
 Objectifs immédiats :
 
-1. Committer et pousser la consolidation documentaire (commits atomiques par dépôt).
-2. Vérifier liens Markdown et cohérence README post-push.
-3. Ouvrir AUTO-002A une fois les dépôts propres.
+1. Lire la spécification AUTO-002.
+2. Ouvrir AUTO-002A (inventaire nœud).
+3. Définir le premier lot d'implémentation dans `hestia` / `hestia-agent`.
 
 ---
 
@@ -142,4 +141,5 @@ Objectifs immédiats :
 
 | Date | Résumé | Décisions | Commit(s) | SHA | Résultat |
 |------|--------|-----------|-----------|-----|----------|
-| 2026-07-28 | Création PROJECT-STATE + PROMPT-REPRISE | Continuité IA officialisée | — | — | Initialisation |
+| 2026-07-28 | Continuité IA officialisée | PROJECT-STATE + PROMPT-REPRISE | gouvernance | `28222a5` | OK |
+| 2026-07-28 | Remise en état Git 4 dépôts | 10 commits atomiques | H1–H4, I1, A1, D1–D4 | voir DÉPÔTS | working trees clean |
