@@ -59,7 +59,7 @@ ADR-021 (identité nœud) · ADR-022 (commandes) · **ADR-023 (terminal WS sorta
 | hestia | `6a451f9632ebf020e74d7742db18864c04350200` |
 | hestia-agent | `cc9e315b7b3a524f9afcb2629e64f0cefcf6769b` |
 | hestia-installer | `c7460ba706fd2f4eda84536576007a8f01b0d369` |
-| hestia-docs | `4a653391b59049573bb7dcebdc6464faf152b7f4` |
+| hestia-docs | `78e057f0d4b2178e5df12227f5acd7c285c438fc` |
 
 ## 7. Lien amont
 

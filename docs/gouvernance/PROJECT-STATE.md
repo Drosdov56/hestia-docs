@@ -151,7 +151,7 @@ Working tree : clean
 
 ## hestia-docs
 
-HEAD : `4a653391b59049573bb7dcebdc6464faf152b7f4` (`4a65339`)  
+HEAD : `78e057f0d4b2178e5df12227f5acd7c285c438fc` (`78e057f`)  
 Working tree : clean  
 État : synchronisé origin/main
 
@@ -261,7 +261,7 @@ Objectifs immédiats :
 
 | Date | Résumé | Décisions | Commit(s) | SHA | Résultat |
 |------|--------|-----------|-----------|-----|----------|
-| 2026-07-28 (soir) | Clôture session : AUTO-002E validé terrain complet | État stable figé ; UI-001 noté ; pas de 002F ce soir | hestia / agent / docs | `6a451f9` / `cc9e315` / `4a65339` | Terminal + reconnexion OK |
+| 2026-07-28 (soir) | Clôture session : AUTO-002E validé terrain complet | État stable figé ; UI-001 noté ; pas de 002F ce soir | hestia / agent / docs | `6a451f9` / `cc9e315` / `78e057f` | Terminal + reconnexion OK |
 | 2026-07-28 | AUTO-002E livré + 1ʳᵉ validation VPS | ADR-023 ; relay systemd+Apache | hestia/agent/installer/docs | `526bbb7` / `3836bde` / `c7460ba` | Relay+WSS+API OK ; UI/agent restant alors |
 | 2026-07-28 | Continuité IA officialisée | PROJECT-STATE + PROMPT-REPRISE | gouvernance | `28222a5` | OK |
 | 2026-07-28 | Remise en état Git 4 dépôts | 10 commits atomiques | H1–H4, I1, A1, D1–D4 | voir DÉPÔTS | OK |
