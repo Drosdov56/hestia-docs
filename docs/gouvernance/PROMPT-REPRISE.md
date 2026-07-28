@@ -15,7 +15,7 @@ Contexte figé (2026-07-28 soir) :
 - `hestia-ws-relay` actif sur le VPS (WSS same-origin via Apache).
 - Ne pas remettre de logique métier dans le relay.
 - Lire la section **INFRASTRUCTURE** de PROJECT-STATE.md avant toute action SSH/déploiement : VPS = `/var/www/hestia` ; nœud = `/opt/hestia` ; hostname `hestia` = mini-PC, pas le VPS.
-- SHA de référence : hestia `6a451f9` · agent `cc9e315` · installer `c7460ba` · docs tip `main`.
+- SHA de référence : hestia `6a451f9` · agent `cc9e315` · installer `c7460ba` · docs `8f037ea`.
 - SW PWA courant : `hestia-v0.8.27`.
 - Epic future notée seulement : **UI-001** (ergonomie admin nœuds) — ne pas démarrer sans demande.
 
