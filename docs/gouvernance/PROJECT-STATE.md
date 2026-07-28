@@ -78,7 +78,7 @@ Working tree : clean
 
 ## hestia-docs
 
-HEAD : `512139a`  
+HEAD : `aaa59ce`  
 Working tree : clean  
 État : synchronisé origin/main
 
