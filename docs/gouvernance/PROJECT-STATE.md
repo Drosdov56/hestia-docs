@@ -159,7 +159,7 @@ Jalons 002F : F4B tip `0b7d002`
 
 ## hestia-docs
 
-HEAD : `d9e6247e784d708ad6ce3e85dff8afe6dd401d3d` (`d9e6247`)  
+HEAD : `702daeb79e99adeffb94148d940f65a5009bca2d` (`702daeb`)  
 Working tree : clean  
 État : synchronisé origin/main
 
@@ -267,7 +267,7 @@ Objectifs immédiats :
 
 | Date | Résumé | Décisions | Commit(s) | SHA | Résultat |
 |------|--------|-----------|-----------|-----|----------|
-| 2026-07-29 | Clôture AUTO-002 (doc) + sync 4 dépôts | AUTO-002 terminé ; UI-001 suivant | hestia-docs | `d9e6247` (`aa40e2d`) | A→F clos |
+| 2026-07-29 | Clôture AUTO-002 (doc) + sync 4 dépôts | AUTO-002 terminé ; UI-001 suivant | hestia-docs | `702daeb` (`aa40e2d`) | A→F clos |
 | 2026-07-29 | AUTO-002F F2→F6 (code) | Token par nœud ; retrait token global | hestia / agent / installer | `24945e2` / `a749a3f` / `0b7d002` | Modèle identité définitif |
 | 2026-07-29 | F1 + ADR-021 | Conception + décision Acceptée | hestia-docs | (inclus clôture) | Prérequis F2 |
 | 2026-07-28 (soir) | Clôture AUTO-002E terrain | État stable ; UI-001 noté | hestia / agent / docs | `6a451f9` / `cc9e315` / `78e057f` | Terminal + reconnexion OK |
