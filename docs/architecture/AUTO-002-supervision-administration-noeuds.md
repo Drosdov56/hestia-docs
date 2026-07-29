@@ -4,7 +4,7 @@
 |----------|--------|
 | **Lot** | AUTO-002 |
 | **Nature** | Spécification d’architecture (normative) |
-| **Statut** | Ouverture officielle — post AUTO-001 |
+| **Statut** | **CLÔTURÉ** (2026-07-29) — lots A→F livrés ; identité nœuds définitive (ADR-021) |
 | **Implémentation** | Hors périmètre de ce document |
 | **Prérequis** | AUTO-001 (A→F) livré — présence, heartbeat, commandes sûres |
 | **Alignement** | ADR-018 · ADR-020 · EPIC-011 · Constitution (résilience / souveraineté) |
@@ -441,63 +441,41 @@ Serveur → event 002C + dashboard 002B
 
 ### AUTO-002F — Cycle de vie du nœud
 
+> **Spécification détaillée (normative) :**  
+> [`AUTO-002F-identite-cycle-vie-noeud.md`](AUTO-002F-identite-cycle-vie-noeud.md) — Phases **F1→F6 livrées** ; **AUTO-002F / AUTO-002 clôturés** (2026-07-29). Token global **retiré**.
+
 #### Objectif
 
-Gérer le **cycle de vie autoritaire** : enrôlement, activation, suspension, révocation, remplacement matériel — sans auto-regénération Agent.
+Gérer le **cycle de vie autoritaire** : identité permanente, token par nœud, enrôlement, activation, suspension, révocation, remplacement matériel — sans auto-regénération Agent. Le relay WS (ADR-023) reste hors logique métier.
 
-#### Périmètre
+#### Périmètre (rappel)
 
-- États : `provisioned` → `active` → `suspended` → `revoked` → `replaced`.
-- Émission token par nœud (hash serveur).
-- Workflow remplacement : même `node_id`, nouveau secret, révocation ancien token.
-- Bootstrap initial : one-shot ou QR (coordination Installer).
+- Identifiants : `node_id` (permanent) · `display_name` / `hostname` (mutables) · credential `token_id` + secret hash.
+- États : `provisioned` → `active` → `suspended` → `revoked` (+ `replaced` archivage) ; présence ONLINE/OFFLINE orthogonale.
+- Ops admin : créer, générer / révoquer / régénérer token, désactiver, activer, révoquer nœud, supprimer, remplacer (continuité = même `node_id`).
+- Bootstrap one-shot (F4) ; binding Bearer ↔ `node_id` (F2) ; **plus de token global** (F6).
 
-**Hors périmètre :** logique métier équipements ; migration données HA.
+**Hors périmètre :** logique métier équipements ; migration données HA ; logique dans `hestia-ws-relay`.
 
-#### Responsabilités
+#### Découpage d’implémentation
 
-| Composant | Rôle |
-|-----------|------|
-| **Serveur** | Crée/révoque tokens ; valide Bearer ↔ `node_id` ; refuse nœud revoked. |
-| **Agent** | Porte secret ; ne change jamais `node_id` seul. |
-| **Installer** | Première pose ; écrit conf ; consomme bootstrap serveur. |
-| **Web Admin** | Wizard enrôlement / remplacement. |
+| Phase | Contenu | Statut |
+|-------|---------|--------|
+| **F1** | Conception (doc) | **Fait** |
+| **F2** | Store credentials + binding + lifecycle | **Fait** |
+| **F3** | API/UI admin lifecycle | **Fait** |
+| **F4** | Bootstrap + Installer | **Fait** |
+| **F5** | Agent hostname + DX rotation | **Fait** |
+| **F6** | Retrait token global + clôture | **Fait** |
 
-#### Données échangées
+#### ADR
 
-| Entité | Champs |
-|--------|--------|
-| **NodeCredential** | `token_id`, `node_id`, `secret_hash`, `issued_at`, `revoked_at`, `label` |
-| **BootstrapToken** | one-shot, TTL court, lié `node_id` pré-créé |
-
-#### API concernées
-
-| Méthode | Chemin | Auth | Effet |
-|---------|--------|------|-------|
-| `POST` | `/api/v1/admin/nodes` | session admin | Crée nœud + credential |
-| `POST` | `/api/v1/admin/nodes/{id}/tokens` | session admin | Rotation secret |
-| `POST` | `/api/v1/admin/nodes/{id}/revoke` | session admin | Révoque |
-| `POST` | `/api/v1/admin/nodes/{id}/replace` | session admin | Workflow remplacement |
-| `POST` | `/api/v1/bootstrap/exchange` | bootstrap token | Obtient credential Agent (Installer) |
-
-#### Interactions Agent / Serveur
-
-- Heartbeat / ingest : Bearer lié à `node_id` du body — rejet si mismatch ou revoked.
-- Extension `authorizeNodeForId()` (AUTO-001 hook).
-
-#### Interactions Interface Web
-
-- Wizard **Ajouter un nœud** ; **Remplacer matériel** ; **Révoquer**.
-
-#### Contraintes de sécurité
-
-- Secret affiché une seule fois à l’émission.
-- Révocation effective immédiate (cache TTL ≤ 60 s).
-- Bootstrap one-shot, IP optionnelle.
+- **ADR-021** (identité / credentials nœud) — **Accepté**.
+- ADR-023 — inchangé (relay = transport).
 
 #### Dépendances
 
-- 002A (registre), AUTO-001 auth hook, Installer module bootstrap.
+- 002A (registre), hook auth nœud, Installer (F4), ADR-021 — **satisfaites**.
 
 ---
 
@@ -594,7 +572,7 @@ flowchart TB
 
 | ADR | Sujet | Moment |
 |-----|-------|--------|
-| **ADR-021** | Identité et credentials nœud (`node_id`, token, révocation, ≠ `hestia_device_id`) | Avant 002F |
+| **ADR-021** | Identité et credentials nœud (`node_id`, token, révocation, ≠ `hestia_device_id`) — **Accepté** | Avant F2 — **fait** |
 | **ADR-022** | Modèle commandes distantes (classes risque, idempotence, file) | Avant 002E |
 | **ADR-023** | Terminal distant sans SSH entrant (WS sortant Agent) — **Accepté** | Avant 002E-2 |
 | **ADR-024** | Artefacts et diagnostics (redaction, rétention, taille) | Avant 002D |

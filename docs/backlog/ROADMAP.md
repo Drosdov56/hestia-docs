@@ -66,7 +66,7 @@ EPIC-001 → EPIC-002 → EPIC-003
 
 **AUTO-001 (présence nœud) :** **TERMINÉE / VALIDÉE** (2026-07-27, BMAX) — voir `execution/AUTO-001.md` (source de vérité).
 
-**AUTO-002E (admin distante + terminal WS) :** **TERMINÉE / VALIDÉE TERRAIN** (2026-07-28 soir). Prochaine étape produit : **AUTO-002F** (quand explicitement demandé).
+**AUTO-002 (supervision / admin / identité nœuds) :** **TERMINÉE / CLÔTURÉE** (2026-07-29) — A→F ; voir `execution/AUTO-002.md`. Token global retiré ; ADR-021 + ADR-023. Prochaine étape produit possible : **UI-001** (quand explicitement demandé).
 
 ---
 

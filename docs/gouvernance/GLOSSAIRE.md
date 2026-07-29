@@ -62,9 +62,15 @@ Chaîne officielle (Constitution) :
 | **Identité personne** | Preuves ≠ identité ≠ décision d’identification | MODELE-IDENTITE |
 | **Identité équipement** | Identifiant métier stable de l’équipement dans Hestia | Module 70 / ADR-005 |
 | **`hestia_device_id`** | Identifiant métier immuable d’un équipement. Terme officiel unique — ne pas utiliser « UUID » pour désigner cet identifiant. | Module 70 / ADR-005 |
-| **`node_id`** | Identité **logique** d’un **nœud** Hestia (Agent / mini-PC). **Indépendant du matériel** (pas dérivé MAC/série à chaque boot). **Distinct** de `hestia_device_id` (équipement) et de l’identité personne. Sert à identifier le nœud auprès du serveur (présence, ingest, registre). | AUTO-001 ; conf Agent |
+| **`node_id`** | Identité **logique** d’un **nœud** Hestia (Agent / mini-PC). **Indépendant du matériel** (pas dérivé MAC/série à chaque boot). **Permanent** après création. **Distinct** de `hestia_device_id` (équipement), de `hostname`, de `display_name` et de l’identité personne. Clé d’auth et d’ops auprès du serveur. | AUTO-001 · ADR-021 · conf Agent |
+| **`display_name`** | Libellé admin **mutable** d’un nœud (UX). **Ne participe jamais** à l’authentification. | ADR-021 · registre nœud |
+| **`hostname`** | Nom d’hôte OS **observationnel** (télémétrie Agent). **Mutable**. **Ne participe jamais** à l’authentification ni ne remplace `node_id`. | ADR-021 · AUTO-002F |
+| **Token nœud (Bearer)** | Secret d’auth Agent→API **propre à un seul** `node_id`. Au plus un token actif par nœud. Serveur = hash only ; clair one-shot à l’émission. | ADR-021 · AUTO-002F |
+| **Présence (`ONLINE`/`OFFLINE`)** | État dérivé du heartbeat (`last_seen` / TTL). **Orthogonal** au cycle de vie administratif (`lifecycle_state`). | AUTO-001 · ADR-021 |
+| **`lifecycle_state`** | État autoritaire serveur du nœud (`provisioned`, `active`, `suspended`, `revoked`, …). Décide si l’API Agent est acceptée. | AUTO-002F · ADR-021 |
 
-Les trois niveaux d’identité ne se confondent pas : **personne** · **nœud (`node_id`)** · **équipement (`hestia_device_id`)**.
+Les trois niveaux d’identité ne se confondent pas : **personne** · **nœud (`node_id`)** · **équipement (`hestia_device_id`)**.  
+Sur un nœud, ne pas confondre non plus : **`node_id`** (identité) · **`display_name`** (label) · **`hostname`** (OS).
 
 ---
 

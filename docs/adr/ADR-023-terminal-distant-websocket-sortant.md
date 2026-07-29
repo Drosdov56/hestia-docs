@@ -96,13 +96,14 @@ Détail d’implémentation : AUTO-002E-2 / `services/ws-relay/`.
 - `core/` reste sans dépendance tierce ; seule la surface REST s’étend (sessions / tickets / validation interne).
 - Une dépendance WebSocket est acceptée **uniquement** dans `services/ws-relay/` (ADR-0005 : justification et isolation).
 - Sécurité : tickets courts, appariement strict `session_id` ↔ `node_id`, allowlist Agent, audit API.
-- Token par nœud (AUTO-002F / ADR-021) reste recommandé avant parc multi-nœuds en production.
+- Token par nœud : décision formalisée dans **[ADR-021](ADR-021-identite-credentials-noeud.md)** (Accepté) — implémentation AUTO-002F F2+ ; aucune logique d’identité dans ce relay.
 
 ---
 
 ## Références
 
 - [AUTO-002 — Supervision et administration des nœuds](../architecture/AUTO-002-supervision-administration-noeuds.md) §4.2
+- [ADR-021 — Identité et credentials nœud](ADR-021-identite-credentials-noeud.md)
 - ADR-0005 — Limiter les dépendances externes
 - ADR-018 — Architecture agent / passerelle
 - ADR-020 — Positionnement Hestia / Home Assistant

@@ -1,7 +1,7 @@
 # PROJECT STATE — HESTIA
 
-Version : 1.1  
-Dernière mise à jour : 2026-07-28 (soir — clôture session)  
+Version : 1.2  
+Dernière mise à jour : 2026-07-29 (clôture AUTO-002)  
 Responsable : Équipe Hestia *(à compléter)*
 
 ---
@@ -40,22 +40,27 @@ En cas de divergence :
 
 # ÉTAT GLOBAL
 
-Statut général : **état stable figé** après validation terrain majeure AUTO-002E (2026-07-28 soir).
+Statut général : **état stable** — **AUTO-002 CLÔTURÉ** (2026-07-29).
 
-Chantier actif : **aucun** (pas de nouveau chantier ce soir).
+Chantier actif : **aucun**.
 
-Dernier chantier terminé : **AUTO-002E** — administration distante (E-1 commandes + E-2 terminal WS) — **clôturé et validé terrain**.
+Dernier chantier terminé : **AUTO-002** (A→F) — supervision, administration distante, identité et cycle de vie des nœuds.
 
-Prochain chantier (prochaine session) : **AUTO-002F** — cycle de vie du nœud (tokens par nœud). Ne pas démarrer ce soir.
+Prochain chantier (backlog) : **UI-001** — refonte ergonomique de l’administration des nœuds. **Ne pas démarrer sans demande explicite.**
 
-Epic future notée (non démarrée) : **UI-001** — refonte ergonomique de l’administration des nœuds.
+Références clôture :
+
+- Suivi : `hestia-docs/docs/backlog/execution/AUTO-002.md`
+- Spec : `AUTO-002-supervision-administration-noeuds.md`
+- Identité : `AUTO-002F-identite-cycle-vie-noeud.md` · **ADR-021** (Accepté)
+- Terminal WS : **ADR-023** (Accepté) — relay = transport
 
 ---
 
 # INFRASTRUCTURE (FACTS UNIQUEMENT — sources dépôt)
 
 > Ne pas confondre **VPS Ionos** (`/var/www/hestia`) et **nœud mini-PC** (`/opt/hestia`).  
-> Sources : `hestia/docs/deployment.md`, `hestia/docs/CONTEXTE-PROJET.md`, `hestia-docs/docs/ecosysteme/ecosysteme.md`, `hestia-docs/docs/architecture/architecture-domotique.md`, ADR-023, `hestia-installer` (`/opt/hestia/*`), `hestia-agent/systemd/hestia-agent.service`, AUTO-001 exécution, `hestia-installer/docs/releases/v1.0.0.md`.
+> Sources : `hestia/docs/deployment.md`, `hestia/docs/CONTEXTE-PROJET.md`, `hestia-docs/docs/ecosysteme/ecosysteme.md`, `hestia-docs/docs/architecture/architecture-domotique.md`, ADR-023, ADR-021, `hestia-installer` (`/opt/hestia/*`), `hestia-agent/systemd/hestia-agent.service`, AUTO-001 / AUTO-002 exécution, `hestia-installer/docs/releases/v1.0.0.md`.
 
 ## Machine A — Serveur applicatif (VPS)
 
@@ -113,87 +118,84 @@ Navigateur / Apps Hestia
         ▼
 Apache 2.4 (VPS) ──► PWA + API PHP (/var/www/hestia)
         │
-        ├── /api/v1/*          → PHP (métier, sessions, tickets)
+        ├── /api/v1/*          → PHP (métier, sessions, tickets, auth nœud)
         └── /api/v1/.../ws     → proxy_wstunnel → hestia-ws-relay (127.0.0.1:8765)
                                       ▲
-Agent (mini-PC) ── HTTPS heartbeat / ingest ──► API
-Agent (mini-PC) ── WSS sortant ───────────────► relay (terminal)
+Agent (mini-PC) ── HTTPS heartbeat / ingest (Bearer credential nœud) ──► API
+Agent (mini-PC) ── WSS sortant ─────────────────────────────────────────► relay (terminal)
 Agent ←→ Home Assistant / Mosquitto / Zigbee2MQTT  (locaux au nœud)
 ```
 
 ---
 
-# DÉPÔTS (SHA finaux — 2026-07-28 soir)
+# DÉPÔTS (SHA finaux — clôture AUTO-002, 2026-07-29)
 
 ## hestia
 
-HEAD : `6a451f9632ebf020e74d7742db18864c04350200` (`6a451f9`)  
-Working tree : propre hors `services/ws-relay/scripts/` (scripts ops locaux non versionnés)  
-État : synchronisé origin/main
+HEAD : `24945e2a36e233dc7d80496c9de97f91e17deba4` (`24945e2`)  
+Working tree : clean  
+État : synchronisé origin/main  
+Jalons 002F : F2 `9f46062` · F3 `213145a` · F4A `e334181` · F6 `09d3522` · tip scripts `24945e2`
 
 ---
 
 ## hestia-agent
 
-HEAD : `cc9e315b7b3a524f9afcb2629e64f0cefcf6769b` (`cc9e315`)  
+HEAD : `a749a3f5edc5039d2492b16955c342334b16f1e3` (`a749a3f`)  
 Working tree : clean  
-État : synchronisé origin/main
+État : synchronisé origin/main  
+Jalons 002F : F5 tip `a749a3f`
 
 ---
 
 ## hestia-installer
 
-HEAD : `c7460ba706fd2f4eda84536576007a8f01b0d369` (`c7460ba`)  
+HEAD : `0b7d00299b0ab71e0e145c5ee5301a39c257e9e3` (`0b7d002`)  
 Working tree : clean  
-État : synchronisé origin/main
+État : synchronisé origin/main  
+Jalons 002F : F4B tip `0b7d002`
 
 ---
 
 ## hestia-docs
 
-HEAD : `78e057f0d4b2178e5df12227f5acd7c285c438fc` (`78e057f`)  
-Working tree : clean  
-État : synchronisé origin/main
+HEAD : *(renseigné après le commit de clôture documentaire)*  
+Working tree : clean après clôture  
+État : synchronisé origin/main après push
 
 ---
 
-# AUTO-002E — CLÔTURE OFFICIELLE
+# AUTO-002 — CLÔTURE OFFICIELLE
 
 | Attribut | Valeur |
 |----------|--------|
-| Statut | **CLÔTURÉ / VALIDÉ TERRAIN** (2026-07-28 soir) |
-| Périmètre | E-1 commandes admin distantes + E-2 terminal interactif (ADR-023) |
-| Suivi exécution | [`docs/backlog/execution/AUTO-002.md`](../backlog/execution/AUTO-002.md) |
+| Statut | **CLÔTURÉ** (2026-07-29) |
+| Périmètre | 002A inventaire · 002B dashboard · 002C observabilité · 002D diagnostics · 002E admin distante + terminal · 002F identité / lifecycle |
+| Suivi | [`docs/backlog/execution/AUTO-002.md`](../backlog/execution/AUTO-002.md) |
 
-## Validations terrain confirmées
+## Architecture définitive — identité des nœuds (ADR-021 / AUTO-002F)
 
-- Infrastructure VPS vs mini-PC clarifiée (fin de confusion `/var/www` vs `/opt`).
-- Déploiement complet VPS (API, relay, Apache WSS, PWA).
-- Routeur SPA + menu « Nœuds Hestia » opérationnels.
-- Parc nœuds, heartbeat, fiche nœud opérationnels.
-- WS Relay + appariement Agent ↔ Relay validés.
-- Terminal interactif validé en conditions réelles (`hestia-bmax`).
-- Reconnexion après fermeture + cycle de vie sessions corrigés et revalidés.
+| Concept | Règle |
+|---------|-------|
+| `node_id` | Identité logique **permanente** ; autorité serveur |
+| `display_name` | Mutable ; **hors auth** |
+| `hostname` | Observationnel (Agent) ; **hors auth** |
+| Credential | **Un token actif / nœud** ; hash-only serveur ; clair one-shot |
+| Présence | `ONLINE`/`OFFLINE` **≠** `lifecycle_state` |
+| Remplacement | Même `node_id` + rotation token |
+| Token global | **Supprimé définitivement** (F6) — plus de `ingest.node_token` |
+| Relay | ADR-023 inchangé — **aucune** logique identité |
 
-## Anomalies du jour et résolutions
+## Validations retenues
 
-| # | Anomalie | Cause | Correctif (SHA) |
-|---|----------|-------|-----------------|
-| 1 | `/module/settings/nodes` → « Module en préparation » | VPS en HEAD ancien : `router.js` / `menu.js` sans branche nodes | Redéploiement SPA (source déjà dans AUTO-002B) + SW |
-| 2 | Terminal bloqué « authentification… » (1ʳᵉ fois) | Agent mini-PC sans handlers `shell_session` (`type not allowed`) | Déploiement Agent AUTO-002E + `python websockets` (pydeps) |
-| 3 | Params session vides après parse | `commands_parse_delivery` capturé via `$(…)` (sous-shell) | `hestia-agent` `02ee8fe` |
-| 4 | `ws_url` agent en `https://` | `agentWsUrl()` utilisait le schéma HTTP | `hestia` `33d8e91` (`wss://`) |
-| 5 | Reconnexion impossible après 1ʳᵉ session | `command_report` déqueue dans sous-shell du heartbeat → `finished` jamais appliqué ; file bloquée | `hestia-agent` `cc9e315` (peek+ack) + `hestia` `6a451f9` (finalize commande à la fermeture session) |
-| 6 | Impression de reload / session perdue UI | Enter / re-render fiche sans isolation terminal | `nodes-terminal.js` / `nodes.js` (preventDefault, form isolé, close WS) — inclus dans `6a451f9` |
+- Terrain AUTO-002E (2026-07-28 soir) : parc, heartbeat, terminal, reconnexion sur `hestia-bmax`.
+- Campagnes API F2/F3/F4A/F6 (`test_nodes_auth_f2`, `test_nodes_admin_f3`, `test_nodes_bootstrap_f4a`, `test_nodes_identity_f6` + suite nodes).
+- Agent F5 : `tests/presence/test_identity_auto002f5.sh`.
+- Installer F4B : tests bootstrap + CI (`2aac00a`).
 
-## Commits de stabilisation fin de journée (à retenir)
+## AUTO-002E — rappel (sous-clôture 2026-07-28)
 
-| Dépôt | SHA court | Message |
-|-------|-----------|---------|
-| hestia | `33d8e91` | fix(nodes): ws_url agent en wss |
-| hestia | `6a451f9` | fix(nodes): cycle de vie shell_session |
-| hestia-agent | `02ee8fe` | fix(agent): params shell_session hors sous-shell |
-| hestia-agent | `cc9e315` | fix(agent): ack command_report hors sous-shell |
+Conservé pour historique : terminal WS, anomalies du jour et SHA `6a451f9` / `cc9e315` — détail dans le journal et `execution/AUTO-002.md`.
 
 ---
 
@@ -203,18 +205,19 @@ Working tree : clean
 2. `hestia-installer/docs/ROADMAP.md` = feuille de route locale ; pilotage produit → `hestia-docs/docs/backlog/ROADMAP.md`.
 3. Documents historiques = archives marquées, non normatives.
 4. AUTO-001 clos / validé terrain 2026-07-27 — suivi : `docs/backlog/execution/AUTO-001.md`.
-5. AUTO-002 ouvert (002A→002E faits ; 002F restant) — spec : `docs/architecture/AUTO-002-supervision-administration-noeuds.md`.
-6. **ADR-023** accepté : terminal distant = WebSocket sortant + service `hestia-ws-relay` (aucune logique métier dans le relay).
-7. Écosystème = 3 dépôts applicatifs + 1 dépôt documentaire.
-8. Agent natif systemd ; HTTPS/WSS sortant vers le serveur.
-9. Home Assistant encapsulé sur le nœud.
-10. Procédures OPS → `hestia-installer/docs/INSTALL.md` ; statut produit → `hestia-docs`.
-11. Pas de duplication conceptuelle entre dépôts.
-12. SW PWA : bump `CACHE_NAME` obligatoire sous `client/` (courant : `hestia-v0.8.27`).
-13. 32 tests E2E Playwright.
-14. EPIC-001 livré.
-15. Continuité IA : `docs/gouvernance/PROJECT-STATE.md` + `PROMPT-REPRISE.md`.
-16. **UI-001** inscrit en backlog (refonte ergonomique admin nœuds) — non démarré.
+5. **AUTO-002 CLÔTURÉ** (2026-07-29) — specs `AUTO-002-*.md` · `AUTO-002F-*.md`.
+6. **ADR-023** accepté : terminal distant = WebSocket sortant + `hestia-ws-relay` (aucune logique métier dans le relay).
+7. **ADR-021** accepté : identité nœud permanente + token par nœud + hash-only ; présence ≠ lifecycle ; **token global retiré**.
+8. Écosystème = 3 dépôts applicatifs + 1 dépôt documentaire.
+9. Agent natif systemd ; HTTPS/WSS sortant vers le serveur.
+10. Home Assistant encapsulé sur le nœud.
+11. Procédures OPS → `hestia-installer/docs/INSTALL.md` ; statut produit → `hestia-docs`.
+12. Pas de duplication conceptuelle entre dépôts.
+13. SW PWA : bump `CACHE_NAME` obligatoire sous `client/` (courant : `hestia-v0.8.27`).
+14. 32 tests E2E Playwright.
+15. EPIC-001 livré.
+16. Continuité IA : `docs/gouvernance/PROJECT-STATE.md` + `PROMPT-REPRISE.md`.
+17. **UI-001** inscrit en backlog — **prochain** chantier produit possible ; non démarré.
 
 ---
 
@@ -222,15 +225,15 @@ Working tree : clean
 
 - Responsable PROJECT-STATE à renseigner.
 - G10 cold boot secteur — en attente séparée.
-- Idle timeout session : non exercé bout-en-bout de façon dédiée (fermeture volontaire + finalize OK).
-- UI-001 (ergonomie terminal / admin nœuds) — backlog uniquement.
-- Scripts ops locaux `hestia/services/ws-relay/scripts/` encore non versionnés (à trancher ultérieurement).
+- Idle timeout session terminal : non exercé bout-en-bout de façon dédiée (fermeture volontaire + finalize OK).
+- UI-001 (ergonomie admin nœuds) — backlog uniquement.
+- Déploiement VPS / nœud des commits F2–F6 : à confirmer ops si non déjà appliqué en prod (hors clôture code).
 
 ---
 
 # BLOCAGES
 
-- Aucun.
+- Aucun pour la clôture documentaire AUTO-002 (les trois dépôts applicatifs sont clean et synchronisés origin/main).
 
 ---
 
@@ -238,10 +241,11 @@ Working tree : clean
 
 Objectifs immédiats :
 
-1. Démarrer **AUTO-002F** (identité / token par nœud, révocation) — uniquement quand explicitement demandé.
-2. Ne pas rouvrir la conception ADR-023 / architecture WS.
-3. Ne pas démarrer UI-001 ni AUTO-002F « en bonus ».
-4. Respecter la cartographie VPS vs mini-PC avant tout SSH.
+1. **Aucun chantier AUTO-002 restant.**
+2. Prochain produit possible : **UI-001** — uniquement sur demande explicite.
+3. Ne pas rouvrir ADR-021 / ADR-023 ; ne pas réintroduire de token global.
+4. Ne pas remettre de logique métier dans `hestia-ws-relay`.
+5. Respecter la cartographie VPS vs mini-PC avant tout SSH.
 
 ---
 
@@ -253,7 +257,9 @@ Objectifs immédiats :
 - Dupliquer roadmap/backlog produit hors de `hestia-docs`.
 - Démarrer un chantier sur working tree sale.
 - Remettre de la logique métier dans `hestia-ws-relay`.
+- Réintroduire `ingest.node_token` / auth globale parc.
 - Confondre hostname `hestia` / `/opt/hestia` (mini-PC) avec le VPS.
+- Confondre `node_id`, `display_name` et `hostname`.
 
 ---
 
@@ -261,8 +267,10 @@ Objectifs immédiats :
 
 | Date | Résumé | Décisions | Commit(s) | SHA | Résultat |
 |------|--------|-----------|-----------|-----|----------|
-| 2026-07-28 (soir) | Clôture session : AUTO-002E validé terrain complet | État stable figé ; UI-001 noté ; pas de 002F ce soir | hestia / agent / docs | `6a451f9` / `cc9e315` / `78e057f` | Terminal + reconnexion OK |
-| 2026-07-28 | AUTO-002E livré + 1ʳᵉ validation VPS | ADR-023 ; relay systemd+Apache | hestia/agent/installer/docs | `526bbb7` / `3836bde` / `c7460ba` | Relay+WSS+API OK ; UI/agent restant alors |
+| 2026-07-29 | Clôture AUTO-002 (doc) + sync 4 dépôts | AUTO-002 terminé ; UI-001 suivant | hestia-docs | tip clôture | A→F clos |
+| 2026-07-29 | AUTO-002F F2→F6 (code) | Token par nœud ; retrait token global | hestia / agent / installer | `24945e2` / `a749a3f` / `0b7d002` | Modèle identité définitif |
+| 2026-07-29 | F1 + ADR-021 | Conception + décision Acceptée | hestia-docs | (inclus clôture) | Prérequis F2 |
+| 2026-07-28 (soir) | Clôture AUTO-002E terrain | État stable ; UI-001 noté | hestia / agent / docs | `6a451f9` / `cc9e315` / `78e057f` | Terminal + reconnexion OK |
+| 2026-07-28 | AUTO-002E livré + 1ʳᵉ validation VPS | ADR-023 ; relay systemd+Apache | hestia/agent/installer/docs | `526bbb7` / `3836bde` / `c7460ba` | Relay+WSS+API OK |
 | 2026-07-28 | Continuité IA officialisée | PROJECT-STATE + PROMPT-REPRISE | gouvernance | `28222a5` | OK |
-| 2026-07-28 | Remise en état Git 4 dépôts | 10 commits atomiques | H1–H4, I1, A1, D1–D4 | voir DÉPÔTS | OK |
 | 2026-07-28 | AUTO-002A inventaire nœud | Registre + API admin | hestia | `ec501f4` | 10+11+11 tests API OK |
