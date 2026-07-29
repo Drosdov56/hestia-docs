@@ -98,7 +98,7 @@ Permettre à un administrateur d’exploiter un parc de mini-PC Hestia **via le 
 | hestia | `24945e2a36e233dc7d80496c9de97f91e17deba4` | Tip main (F6 `09d3522` + scripts VPS `24945e2`) |
 | hestia-agent | `a749a3f5edc5039d2492b16955c342334b16f1e3` | F5 tip |
 | hestia-installer | `0b7d00299b0ab71e0e145c5ee5301a39c257e9e3` | F4B tip |
-| hestia-docs | *(commit de clôture documentaire — tip après push)* | Ce fichier + PROJECT-STATE |
+| hestia-docs | `aa40e2dbe18e5102c38351e848ae485b26a34aee` | Clôture documentaire AUTO-002 |
 
 ### SHA historiques (rappels)
 
