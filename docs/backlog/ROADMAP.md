@@ -66,15 +66,30 @@ EPIC-001 → EPIC-002 → EPIC-003
 
 **AUTO-001 (présence nœud) :** **TERMINÉE / VALIDÉE** (2026-07-27, BMAX) — voir `execution/AUTO-001.md` (source de vérité).
 
-**AUTO-002 (supervision / admin / identité nœuds) :** **TERMINÉE / CLÔTURÉE** (2026-07-29) — A→F ; voir `execution/AUTO-002.md`. Token global retiré ; ADR-021 + ADR-023. Prochaine étape produit possible : **UI-001** (quand explicitement demandé).
+**AUTO-002 (supervision / admin / identité nœuds) :** **TERMINÉE / CLÔTURÉE** (2026-07-29) — A→F ; voir `execution/AUTO-002.md`. Token global retiré ; ADR-021 + ADR-023.
+
+**UI-001 (refonte ergonomique admin nœuds) :** **TERMINÉE** (2026-07-30) — **VALIDÉE AVEC RÉSERVES** (Tech Committee). Lots B→G sur `hestia` (`af1dae4`…`aa6f3ad`). Réserves → **UI-002** ; pas de réouverture.
 
 ---
 
-## Epics futures (backlog — non démarrées)
+## Epics / chantiers UI (backlog)
 
-| Epic | Intitulé | Notes |
-|------|----------|--------|
-| **UI-001** | Refonte ergonomique de l’administration des nœuds | Terminal plein écran ; meilleure présentation des commandes ; interprétation ANSI ; états de connexion ; indicateurs ; responsive ; cohérence graphique. **Ne pas démarrer sans demande explicite.** |
+| ID | Intitulé | Statut | Notes |
+|----|----------|--------|-------|
+| **UI-001** | Refonte ergonomique de l’administration des nœuds | **Livré** | Parc cartes · fiche onglets · synthèse · pilotage · identité · observabilité. Tip `aa6f3ad`. |
+| **UI-002** | Consolidation ergonomique de l’administration des nœuds | **À faire** | Lots indépendants issus des décisions **ACCEPTÉES** du Tech Committee UI-001. **Ne pas démarrer sans demande explicite.** |
+
+### UI-002 — périmètre synthétique (ACCEPTÉES uniquement)
+
+| Lot | Priorité | Contenu |
+|-----|----------|---------|
+| **UX-001** | Haute | Densité Parc ; libellés FR Pilotage ; allègement redondances Synthèse/Identité ; section Administration ; lien fiche |
+| **UX-002** | Haute | Dates events ; JSON repliable ; carte Diagnostic Observabilité |
+| **A11Y-001** | Moyenne | Navigation clavier / focus onglets fiche |
+| **CSS-001** | Basse | Socle CSS cartes nodes ; `.settings-panel` ; nested cards |
+| **TECH-001** | Basse | Hygiène JS bornée (code mort, helpers carte) — pas de refactor global |
+
+Hors UI-002 : éléments **REPORTÉS** et **REJETÉS** du Tech Committee (confirmations structurées, split `nodes.js`, tri métier parc, nouvelles actions/API, design system global).
 
 ---
 
