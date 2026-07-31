@@ -1,9 +1,12 @@
 # EXEC-EPIC-005
 
 Statut :
-OUVERT
+**TERMINÉ**
 
 Date d'ouverture :
+2026-07-31
+
+Date de clôture :
 2026-07-31
 
 ---
@@ -44,12 +47,12 @@ Faire des applications Hestia la **seule** expérience utilisateurs finaux pour 
 
 ## Découpage d'exécution
 
-| Lot | Objet | Features | Statut |
-|-----|-------|----------|--------|
-| **A** | Contrat API Hub utilisateur (consultation durable) | F-020 (fondation) | À faire |
-| **B** | Affichage Hub / module home (PWA) | F-020 | À faire |
-| **C** | Canal notifications Serveur → Apps (in-app) | F-021 | À faire |
-| **D** | Android WebView / bridge notification | F-020, F-021 | À faire |
+| Lot | Objet | Features | Statut | Commit (`hestia`) |
+|-----|-------|----------|--------|-------------------|
+| **A** | Contrat API Hub utilisateur (consultation durable) | F-020 (fondation) | **TERMINÉ** | `1bc2fb2c7c6ea2a596af3e1177bd10bf4ca5912b` |
+| **B** | Affichage Hub / module home (PWA) | F-020 | **TERMINÉ** | `ae5717c80f994a685ede404352d7c6355462d3ce` |
+| **C** | Canal notifications Serveur → Apps (in-app) | F-021 | **TERMINÉ** | `b2fdc016c46b50075b28772c4a9fb3a6b379b50b` |
+| **D** | Android WebView / bridge notification | F-020, F-021 | **TERMINÉ** | `0a564b025b5633a9cee2cf77f83d2590e8245735` |
 
 Dépôt cible : `hestia` (`core/`, `client/`, `android/`).  
 S’appuyer sur les livrables EPIC-004 (Hub minimal, `NotificationStore`) sans les re-formuler.  
@@ -78,7 +81,7 @@ Consolider la consultation utilisateur des informations utiles (hors Admin) : co
 - un mécanisme de rafraîchissement (polling ou équivalent) est disponible ;
 - aucun terme HA / MQTT / Z2M dans les payloads Hub.
 
-**État** : À faire
+**État** : **TERMINÉ** — commit `1bc2fb2c7c6ea2a596af3e1177bd10bf4ca5912b`
 
 ---
 
@@ -101,7 +104,7 @@ Rendre le Hub / module home l’expérience durable de consultation des informat
 - le client n’interprète / ne reformule pas les informations ;
 - le scénario PoC reste visible durablement dans le Hub.
 
-**État** : À faire
+**État** : **TERMINÉ** — commit `ae5717c80f994a685ede404352d7c6355462d3ce`
 
 ---
 
@@ -125,7 +128,7 @@ Faire parvenir aux Apps les notifications liées aux informations utiles (canal 
 - pas d’envoi réel multi-canal exigé dans ce lot (email / SMS hors périmètre si non déjà prévu) ;
 - déduplication / optionnalité conservées.
 
-**État** : À faire
+**État** : **TERMINÉ** — commit `b2fdc016c46b50075b28772c4a9fb3a6b379b50b`
 
 ---
 
@@ -148,7 +151,7 @@ Faire parvenir aux Apps les notifications liées aux informations utiles (canal 
 - pas de logique métier / formulation dans `android/` ;
 - critères de done Epic : information PoC visible durablement ; notification optionnelle démontrable.
 
-**État** : À faire
+**État** : **TERMINÉ** — commit `0a564b025b5633a9cee2cf77f83d2590e8245735`
 
 ---
 
@@ -170,16 +173,26 @@ Faire parvenir aux Apps les notifications liées aux informations utiles (canal 
 
 Ouverture du suivi d'exécution de l'EPIC-005 (préparation post-clôture EPIC-004).
 
-Découpage A→D proposé :
+Découpage A→D proposé puis exécuté :
 - A contrat API Hub utilisateur ;
 - B affichage Hub / module home (PWA) ;
 - C canal notifications Serveur → Apps (in-app) ;
 - D Android WebView / bridge notification.
 
-Aucun développement réalisé.
+Lots A→D implémentés et poussés sur `hestia` (`1bc2fb2` … `0a564b0`).
+
+Clôture documentaire officielle — verdict **TERMINÉ**.
 
 ---
 
 ## Clôture
 
-À compléter lors de la fin de l'EPIC.
+| Attribut | Valeur |
+|----------|--------|
+| Verdict | **TERMINÉ** |
+| Date | 2026-07-31 |
+| Dépôt code | `hestia` tip `0a564b0` |
+| Features | F-020, F-021 validées |
+| Critères de done | Hub durable + notification optionnelle démontrable |
+| Surfaces | contrat `hub.v1` · Hub PWA · notifications in-app `notifications.v1` · bridge Android |
+| Suite produit | **EPIC-006** (pipeline information) — **ne pas démarrer sans demande explicite** |

@@ -1,7 +1,7 @@
 # PROJECT STATE — HESTIA
 
-Version : 1.7  
-Dernière mise à jour : 2026-07-31 (clôture EPIC-004)  
+Version : 1.8  
+Dernière mise à jour : 2026-07-31 (clôture EPIC-005)  
 Responsable : Équipe Hestia *(à compléter)*
 
 ---
@@ -40,21 +40,23 @@ En cas de divergence :
 
 # ÉTAT GLOBAL
 
-Statut général : **état stable** — **AUTO-002 CLÔTURÉ** · **UI-001 CLÔTURÉ** · **UI-002 CLÔTURÉ** · **EPIC-002 CLÔTURÉ** · **EPIC-003 CLÔTURÉ** · **EPIC-004 CLÔTURÉ** (2026-07-31).
+Statut général : **état stable** — **AUTO-002 CLÔTURÉ** · **UI-001 CLÔTURÉ** · **UI-002 CLÔTURÉ** · **EPIC-002 CLÔTURÉ** · **EPIC-003 CLÔTURÉ** · **EPIC-004 CLÔTURÉ** · **EPIC-005 CLÔTURÉ** (2026-07-31).
 
 Chantier actif : **aucun**.
 
-Dernier chantier terminé : **EPIC-004** — PoC événement → information utile (lots A→D, F-018 / F-019).
+Dernier chantier terminé : **EPIC-005** — Hub familial & notifications (lots A→D, F-020 / F-021).
 
-Prochain chantier (backlog) : **EPIC-005** — Hub familial & notifications — **ne pas démarrer sans demande explicite**.
+Prochain chantier (backlog) : **EPIC-006** — Pipeline information complet — **ne pas démarrer sans demande explicite**.
 
-Capacités figées après EPIC-004 :
+Capacités figées après EPIC-005 :
 
-- **premier flux fonctionnel complet** disponible : événement métier → information utile → Hub → notification optionnelle ;
+- **Hub familial opérationnel** (module home / PWA) ;
+- **contrat Hub v1 opérationnel** (`hub.v1`) ;
+- **notifications in-app opérationnelles** (`notifications.v1`) ;
+- **bridge Android opérationnel** (WebView, sans logique métier) ;
+- **premier flux fonctionnel complet** conservé : événement métier → information utile → Hub → notification optionnelle ;
 - ingest présence rattaché au SoT (`hestia_device_id`) ;
 - formulation déterministe sans jargon HA / MQTT / Z2M ;
-- surface Hub minimale (module Maison) en lecture seule ;
-- notifications optionnelles in-app (enregistrées, sans envoi réel) ;
 - assistant MS / SoT / machine d’états (EPIC-002 / EPIC-003) inchangés et réutilisés.
 
 Références clôture AUTO-002 :
@@ -73,6 +75,8 @@ Références clôture EPIC-002 : voir section **EPIC-002 — CLÔTURE OFFICIELLE
 Références clôture EPIC-003 : voir section **EPIC-003 — CLÔTURE OFFICIELLE** ci-dessous.
 
 Références clôture EPIC-004 : voir section **EPIC-004 — CLÔTURE OFFICIELLE** ci-dessous.
+
+Références clôture EPIC-005 : voir section **EPIC-005 — CLÔTURE OFFICIELLE** ci-dessous.
 
 ---
 
@@ -151,7 +155,7 @@ Agent ←→ Home Assistant / Mosquitto / Zigbee2MQTT  (locaux au nœud)
 
 ## hestia
 
-HEAD : tip **EPIC-004-D** `2fd0cce`  
+HEAD : tip **EPIC-005-D** `0a564b0`  
 Working tree : clean  
 État : synchronisé origin/main  
 Jalons 002F : F2 `9f46062` · F3 `213145a` · F4A `e334181` · F6 `09d3522`  
@@ -160,7 +164,8 @@ UI-002 : A `abff25c` · B `d7e22c9` · C `0634fdd` · D `f7c481d`
 EPIC-002 : A `153dff4` · B `b59ed07` · C `58f5755` · D `c73a7d5`  
 EPIC-003 : A `499e535` · B `22f2bf8` · C `ac22e51` · D `b93d209`  
 EPIC-004 : A `d570e22` · B `41b5e4a` · C `adeae82` · D `2fd0cce`  
-SW PWA : `hestia-v0.8.41`
+EPIC-005 : A `1bc2fb2` · B `ae5717c` · C `b2fdc01` · D `0a564b0`  
+SW PWA : `hestia-v0.8.44`
 
 ---
 
@@ -184,7 +189,7 @@ Jalons 002F : F4B tip `0b7d002`
 
 ## hestia-docs
 
-HEAD : tip clôture EPIC-004 (ce commit)  
+HEAD : tip clôture EPIC-005 (ce commit)  
 Working tree : clean  
 État : synchronisé origin/main
 
@@ -379,6 +384,37 @@ Comportement métier de UI-001 conservé. Lots indépendants, chacun validé sé
 
 ---
 
+# EPIC-005 — CLÔTURE OFFICIELLE
+
+| Attribut | Valeur |
+|----------|--------|
+| Statut | **TERMINÉ / CLÔTURÉ** (2026-07-31) |
+| Dépôt | `hestia` (API Hub + PWA + Android) |
+| Périmètre | Lots **A→D** — F-020 / F-021 (Hub familial & notifications) |
+| Backlog | [`docs/backlog/EPIC-005.md`](../backlog/EPIC-005.md) |
+| Exécution | [`docs/backlog/execution/EXEC-EPIC-005.md`](../backlog/execution/EXEC-EPIC-005.md) |
+| Tip | `0a564b0` |
+| SW | `hestia-v0.8.44` |
+
+## Commits de référence (hestia)
+
+| Lot | SHA | Contenu |
+|-----|-----|---------|
+| **EPIC-005-A** | `1bc2fb2c7c6ea2a596af3e1177bd10bf4ca5912b` | Contrat API Hub (`hub.v1`) |
+| **EPIC-005-B** | `ae5717c80f994a685ede404352d7c6355462d3ce` | Hub utilisateur PWA |
+| **EPIC-005-C** | `b2fdc016c46b50075b28772c4a9fb3a6b379b50b` | Notifications in-app (`notifications.v1`) |
+| **EPIC-005-D** | `0a564b025b5633a9cee2cf77f83d2590e8245735` | Bridge Android WebView |
+
+## Synthèse
+
+- **Hub familial opérationnel**  
+- **Contrat Hub v1 opérationnel**  
+- **Notifications in-app opérationnelles**  
+- **Bridge Android opérationnel** (détection + mode dégradé sans bridge)  
+- Aucune logique métier déplacée côté client / Android  
+
+---
+
 # DÉCISIONS STRUCTURANTES
 
 1. `hestia-docs` = Source de vérité transverse — [DECISION-0001](DECISION-0001-DOCUMENTATION.md).
@@ -393,7 +429,7 @@ Comportement métier de UI-001 conservé. Lots indépendants, chacun validé sé
 10. Home Assistant encapsulé sur le nœud.
 11. Procédures OPS → `hestia-installer/docs/INSTALL.md` ; statut produit → `hestia-docs`.
 12. Pas de duplication conceptuelle entre dépôts.
-13. SW PWA : bump `CACHE_NAME` obligatoire sous `client/` (courant : `hestia-v0.8.41`).
+13. SW PWA : bump `CACHE_NAME` obligatoire sous `client/` (courant : `hestia-v0.8.44`).
 14. 32 tests E2E Playwright.
 15. EPIC-001 livré.
 16. Continuité IA : `docs/gouvernance/PROJECT-STATE.md` + `PROMPT-REPRISE.md`.
@@ -402,6 +438,7 @@ Comportement métier de UI-001 conservé. Lots indépendants, chacun validé sé
 19. **EPIC-002 CLÔTURÉ** (2026-07-31) — SoT équipements Module 70 ; tip `c73a7d5` ; F-007→F-012.
 20. **EPIC-003 CLÔTURÉ** (2026-07-31) — Assistant mise en service UX-003 ; tip `b93d209` ; F-013→F-017.
 21. **EPIC-004 CLÔTURÉ** (2026-07-31) — PoC information utile ; tip `2fd0cce` ; F-018 / F-019 ; premier flux fonctionnel complet.
+22. **EPIC-005 CLÔTURÉ** (2026-07-31) — Hub familial & notifications ; tip `0a564b0` ; F-020 / F-021 ; SW `hestia-v0.8.44`.
 
 ---
 
@@ -410,15 +447,15 @@ Comportement métier de UI-001 conservé. Lots indépendants, chacun validé sé
 - Responsable PROJECT-STATE à renseigner.
 - G10 cold boot secteur — en attente séparée.
 - Idle timeout session terminal : non exercé bout-en-bout de façon dédiée (fermeture volontaire + finalize OK).
-- Déploiement VPS / nœud des commits F2–F6 + UI-001 + UI-002 + EPIC-002 + EPIC-003 + EPIC-004 : à confirmer ops si non déjà appliqué en prod (hors clôture code).
+- Déploiement VPS / nœud des commits F2–F6 + UI-001 + UI-002 + EPIC-002 → EPIC-005 : à confirmer ops si non déjà appliqué en prod (hors clôture code).
 - Consommation Agent des `pending_ops` équipements : hors EPIC-002 (exécution terrain différée).
-- Prochain EPIC backlog : **EPIC-005** — démarrer uniquement sur demande explicite.
+- Prochain EPIC backlog : **EPIC-006** — démarrer uniquement sur demande explicite.
 
 ---
 
 # BLOCAGES
 
-- Aucun pour la clôture documentaire EPIC-004.
+- Aucun pour la clôture documentaire EPIC-005.
 
 ---
 
@@ -426,10 +463,10 @@ Comportement métier de UI-001 conservé. Lots indépendants, chacun validé sé
 
 Objectifs immédiats :
 
-1. **Aucun chantier actif** — UI-001, UI-002, EPIC-002, EPIC-003 et EPIC-004 clos ; ne pas les rouvrir sauf anomalie critique.
-2. Prochain candidat backlog : **EPIC-005** (Hub familial & notifications) — **ne pas démarrer sans demande explicite**.
-3. Ne pas rouvrir ADR-021 / ADR-023 / ADR-004 / ADR-005 ; ne pas réintroduire de token global.
-4. Ne pas remettre de logique métier dans `hestia-ws-relay`.
+1. **Aucun chantier actif** — UI-001, UI-002, EPIC-002 → EPIC-005 clos ; ne pas les rouvrir sauf anomalie critique.
+2. Prochain candidat backlog : **EPIC-006** (pipeline information) — **ne pas démarrer sans demande explicite**.
+3. Ne pas rouvrir ADR-021 / ADR-023 / ADR-004 / ADR-005 / ADR-018 / ADR-020 ; ne pas réintroduire de token global.
+4. Ne pas remettre de logique métier dans `hestia-ws-relay` ni dans le bridge Android.
 5. Respecter la cartographie VPS vs mini-PC avant tout SSH.
 
 ---
@@ -452,6 +489,8 @@ Objectifs immédiats :
 
 | Date | Résumé | Décisions | Commit(s) | SHA | Résultat |
 |------|--------|-----------|-----------|-----|----------|
+| 2026-07-31 | Clôture officielle EPIC-005 | EPIC-005 TERMINÉ ; Hub / notifs / bridge OK | hestia-docs | *(ce commit)* | EPIC-005 clos |
+| 2026-07-31 | EPIC-005 A→D (code hestia) | F-020 / F-021 Hub familial & notifications | hestia | `1bc2fb2`…`0a564b0` | TERMINÉ |
 | 2026-07-31 | Clôture officielle EPIC-004 | EPIC-004 TERMINÉ ; premier flux fonctionnel complet | hestia-docs | *(ce commit)* | EPIC-004 clos |
 | 2026-07-31 | EPIC-004 A→D (code hestia) | F-018 / F-019 PoC information utile | hestia | `d570e22`…`2fd0cce` | TERMINÉ |
 | 2026-07-31 | Clôture officielle EPIC-003 | EPIC-003 TERMINÉ ; assistant MS disponible | hestia-docs | `277faef` | EPIC-003 clos |
