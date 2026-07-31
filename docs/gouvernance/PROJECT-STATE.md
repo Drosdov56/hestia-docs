@@ -1,7 +1,7 @@
 # PROJECT STATE — HESTIA
 
-Version : 1.3  
-Dernière mise à jour : 2026-07-30 (clôture UI-001)  
+Version : 1.4  
+Dernière mise à jour : 2026-07-31 (clôture UI-002)  
 Responsable : Équipe Hestia *(à compléter)*
 
 ---
@@ -40,13 +40,13 @@ En cas de divergence :
 
 # ÉTAT GLOBAL
 
-Statut général : **état stable** — **AUTO-002 CLÔTURÉ** · **UI-001 CLÔTURÉ** (2026-07-30).
+Statut général : **état stable** — **AUTO-002 CLÔTURÉ** · **UI-001 CLÔTURÉ** · **UI-002 CLÔTURÉ** (2026-07-31).
 
 Chantier actif : **aucun**.
 
-Dernier chantier terminé : **UI-001** — refonte ergonomique de l’administration des nœuds (**VALIDÉ AVEC RÉSERVES**).
+Dernier chantier terminé : **UI-002** — consolidation ergonomique de l’administration des nœuds (lots A→D).
 
-Prochain chantier (backlog) : **UI-002** — Consolidation ergonomique de l’administration des nœuds (lots indépendants issus des réserves arbitrées). **Ne pas démarrer sans demande explicite.**
+Prochain chantier (backlog) : **aucun inscrit**. Ne pas inventer ni démarrer de chantier sans demande explicite.
 
 Références clôture AUTO-002 :
 
@@ -56,6 +56,8 @@ Références clôture AUTO-002 :
 - Terminal WS : **ADR-023** (Accepté) — relay = transport
 
 Références clôture UI-001 : voir section **UI-001 — CLÔTURE OFFICIELLE** ci-dessous.
+
+Références clôture UI-002 : voir section **UI-002 — CLÔTURE OFFICIELLE** ci-dessous.
 
 ---
 
@@ -130,16 +132,17 @@ Agent ←→ Home Assistant / Mosquitto / Zigbee2MQTT  (locaux au nœud)
 
 ---
 
-# DÉPÔTS (SHA — état au 2026-07-30)
+# DÉPÔTS (SHA — état au 2026-07-31)
 
 ## hestia
 
-HEAD : `aa6f3ade70680a3f300c12df42deeb906c17d4b0` (`aa6f3ad`) — tip **UI-001-G**  
+HEAD : tip **UI-002-D** `f7c481d`  
 Working tree : clean  
 État : synchronisé origin/main  
 Jalons 002F : F2 `9f46062` · F3 `213145a` · F4A `e334181` · F6 `09d3522`  
 UI-001 : B `af1dae4` · C `1d4f8e2` · D `ea5a667` · E `91aaeae` · F `62c54fc` · G `aa6f3ad`  
-SW PWA : `hestia-v0.8.33`
+UI-002 : A `abff25c` · B `d7e22c9` · C `0634fdd` · D `f7c481d`  
+SW PWA : `hestia-v0.8.37`
 
 ---
 
@@ -163,7 +166,7 @@ Jalons 002F : F4B tip `0b7d002`
 
 ## hestia-docs
 
-HEAD : `702daeb79e99adeffb94148d940f65a5009bca2d` (`702daeb`)  
+HEAD : tip DOC-UI-002 lancement `95ec1e4` (clôture officielle = ce commit)  
 Working tree : clean  
 État : synchronisé origin/main
 
@@ -235,7 +238,37 @@ Conservé pour historique : terminal WS, anomalies du jour et SHA `6a451f9` / `c
 
 ## Réserves
 
-Transformées en backlog **UI-002** (Consolidation ergonomique) — lots indépendants issus des décisions **ACCEPTÉES** du Tech Committee. Éléments REPORTÉS / REJETÉS hors UI-002.
+Transformées en backlog **UI-002** (Consolidation ergonomique) — lots indépendants issus des décisions **ACCEPTÉES** du Tech Committee. Éléments REPORTÉS / REJETÉS hors UI-002. **UI-002 CLÔTURÉ** (2026-07-31).
+
+---
+
+# UI-002 — CLÔTURE OFFICIELLE
+
+| Attribut | Valeur |
+|----------|--------|
+| Statut | **CLÔTURÉ** (2026-07-31) |
+| Dépôt | `hestia` (PWA admin nœuds) |
+| Périmètre | Lots **A→D** — consolidation ergonomique uniquement (pas d’API / pas de logique métier / ADR-021 / ADR-023 inchangés) |
+| Backlog | [`docs/backlog/UI-002.md`](../backlog/UI-002.md) |
+| SW | `hestia-v0.8.37` |
+
+## Commits de référence (hestia)
+
+| Lot | SHA | Contenu |
+|-----|-----|---------|
+| **UI-002-A** | `abff25c` | Consolidation ergonomique du Parc |
+| **UI-002-B** | `d7e22c9` | Observabilité lisible |
+| **UI-002-C** | `0634fdd` | Accessibilité |
+| **UI-002-D** | `f7c481d` | Hygiène CSS / JS |
+
+## Synthèse des lots A→D
+
+- **A** — Parc allégé (densité, redondances, navigation)
+- **B** — Dates formatées, JSON repliable, Diagnostic plus lisible
+- **C** — Navigation clavier, ARIA des onglets
+- **D** — Code mort retiré, factorisation légère, helpers locaux
+
+Comportement métier de UI-001 conservé. Lots indépendants, chacun validé séparément.
 
 ---
 
@@ -253,12 +286,12 @@ Transformées en backlog **UI-002** (Consolidation ergonomique) — lots indépe
 10. Home Assistant encapsulé sur le nœud.
 11. Procédures OPS → `hestia-installer/docs/INSTALL.md` ; statut produit → `hestia-docs`.
 12. Pas de duplication conceptuelle entre dépôts.
-13. SW PWA : bump `CACHE_NAME` obligatoire sous `client/` (courant : `hestia-v0.8.33`).
+13. SW PWA : bump `CACHE_NAME` obligatoire sous `client/` (courant : `hestia-v0.8.37`).
 14. 32 tests E2E Playwright.
 15. EPIC-001 livré.
 16. Continuité IA : `docs/gouvernance/PROJECT-STATE.md` + `PROMPT-REPRISE.md`.
 17. **UI-001 CLÔTURÉ** (2026-07-30) — VALIDÉ AVEC RÉSERVES ; tip `aa6f3ad` ; réserves → **UI-002**.
-18. **UI-002** inscrit en backlog — Consolidation ergonomique (lots issus Tech Committee) ; non démarré.
+18. **UI-002 CLÔTURÉ** (2026-07-31) — consolidation ergonomique lots A→D ; tip `f7c481d` ; SW `hestia-v0.8.37`.
 
 ---
 
@@ -267,14 +300,14 @@ Transformées en backlog **UI-002** (Consolidation ergonomique) — lots indépe
 - Responsable PROJECT-STATE à renseigner.
 - G10 cold boot secteur — en attente séparée.
 - Idle timeout session terminal : non exercé bout-en-bout de façon dédiée (fermeture volontaire + finalize OK).
-- **UI-002** (consolidation ergonomique admin nœuds) — backlog uniquement ; ne pas démarrer sans demande explicite.
-- Déploiement VPS / nœud des commits F2–F6 + UI-001 : à confirmer ops si non déjà appliqué en prod (hors clôture code).
+- Déploiement VPS / nœud des commits F2–F6 + UI-001 + UI-002 : à confirmer ops si non déjà appliqué en prod (hors clôture code).
+- Aucun prochain chantier produit inscrit — attendre une demande explicite.
 
 ---
 
 # BLOCAGES
 
-- Aucun pour la clôture documentaire UI-001.
+- Aucun pour la clôture documentaire UI-002.
 
 ---
 
@@ -282,8 +315,8 @@ Transformées en backlog **UI-002** (Consolidation ergonomique) — lots indépe
 
 Objectifs immédiats :
 
-1. **Aucun chantier UI-001 restant** — ne pas rouvrir sauf anomalie critique.
-2. Prochain produit possible : **UI-002** — uniquement sur demande explicite.
+1. **Aucun chantier actif** — UI-001 et UI-002 clos ; ne pas les rouvrir sauf anomalie critique.
+2. Ne pas inventer ni démarrer de prochain chantier sans demande explicite.
 3. Ne pas rouvrir ADR-021 / ADR-023 ; ne pas réintroduire de token global.
 4. Ne pas remettre de logique métier dans `hestia-ws-relay`.
 5. Respecter la cartographie VPS vs mini-PC avant tout SSH.
@@ -308,6 +341,8 @@ Objectifs immédiats :
 
 | Date | Résumé | Décisions | Commit(s) | SHA | Résultat |
 |------|--------|-----------|-----------|-----|----------|
+| 2026-07-31 | Clôture officielle UI-002 | UI-002 CLÔTURÉ ; aucun chantier actif | hestia-docs | *(ce commit)* | UI-002 clos |
+| 2026-07-31 | UI-002 A→D (code hestia) | Consolidation ergonomique admin nœuds | hestia | `abff25c`…`f7c481d` | CLÔTURÉ |
 | 2026-07-30 | Clôture doc UI-001 + backlog UI-002 | UI-001 VALIDÉ AVEC RÉSERVES ; réserves → UI-002 | hestia-docs | *(ce commit)* | UI-001 clos |
 | 2026-07-30 | UI-001 B→G (code hestia) | Refonte ergonomique admin nœuds | hestia | `af1dae4`…`aa6f3ad` | VALIDÉ AVEC RÉSERVES |
 | 2026-07-29 | Clôture AUTO-002 (doc) + sync 4 dépôts | AUTO-002 terminé ; UI-001 suivant | hestia-docs | `702daeb` (`aa40e2d`) | A→F clos |
