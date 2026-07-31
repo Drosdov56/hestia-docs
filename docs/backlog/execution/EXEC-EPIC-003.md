@@ -1,9 +1,12 @@
 # EXEC-EPIC-003
 
 Statut :
-OUVERT
+**TERMINÉ**
 
 Date d'ouverture :
+2026-07-31
+
+Date de clôture :
 2026-07-31
 
 ---
@@ -40,12 +43,12 @@ Hestia Admin = seule couche visible pour la mise en service métier ; jamais HA 
 
 ## Découpage d'exécution
 
-| Lot | Objet | Features | Statut |
-|-----|-------|----------|--------|
-| **A** | Détection et admission | F-016 | À faire |
-| **B** | Validation technique | F-013, F-014 | À faire |
-| **C** | Mise en service | F-015 | À faire |
-| **D** | Appairage | F-017 | À faire |
+| Lot | Objet | Features | Statut | Commit (`hestia`) |
+|-----|-------|----------|--------|-------------------|
+| **A** | Détection et admission | F-016 | **Terminé** | `499e535` |
+| **B** | Validation technique | F-013, F-014 | **Terminé** | `22f2bf85ee35069e434022763cb21c2f00748a31` |
+| **C** | Mise en service | F-015 | **Terminé** | `ac22e512790701ffc75cd0eb8f8bb0d92d0a02e2` |
+| **D** | Appairage | F-017 | **Terminé** | `b93d2096fc3e6c633e3f9c30262f643554b8ef29` |
 
 Dépôts cibles : `hestia` (PWA Admin + API) · `hestia-agent` (exécutions techniques).  
 Réutiliser les API EPIC-002 (`/admin/equipment`, transitions, logical-name) — ne pas les redéfinir.
@@ -72,7 +75,7 @@ Découvrir les équipements détectés, permettre l’admission par l’administ
 - l’état initial SoT est `pending_provisioning` ;
 - aucune écriture métier hors Backend.
 
-**État** : À faire
+**État** : **Terminé** — commit `499e535`
 
 ---
 
@@ -96,7 +99,7 @@ Exécuter les contrôles multi-couches et produire un rapport de validation (err
 - un rapport est affiché avant toute saisie métier ;
 - les erreurs et avertissements sont synthétisés de façon lisible.
 
-**État** : À faire
+**État** : **Terminé** — commit `22f2bf85ee35069e434022763cb21c2f00748a31`
 
 ---
 
@@ -119,7 +122,7 @@ Collecter les informations métier et conduire la fiche jusqu’à l’exploitat
 - transitions uniquement via la machine d’états documentée ;
 - un équipement peut atteindre `active` sans UI HA / Z2M.
 
-**État** : À faire
+**État** : **Terminé** — commit `ac22e512790701ffc75cd0eb8f8bb0d92d0a02e2`
 
 ---
 
@@ -143,7 +146,7 @@ Orchestrer le permit-join via `hestia-agent`, avec une UX entièrement pilotée 
 - le feedback d’état d’appairage est visible dans Hestia ;
 - aucune étape métier n’exige l’UI HA ou Z2M (critère de done Epic).
 
-**État** : À faire
+**État** : **Terminé** — commit `b93d2096fc3e6c633e3f9c30262f643554b8ef29`
 
 ---
 
@@ -170,10 +173,21 @@ Découpage A→D fixé officiellement (F-013→F-017) :
 - C mise en service ;
 - D appairage.
 
-Aucun développement réalisé.
+Lots A→D implémentés et poussés sur `hestia` (`499e535` … `b93d209`).
+
+Clôture documentaire officielle — verdict **TERMINÉ**.
 
 ---
 
 ## Clôture
 
-À compléter lors de la fin de l'EPIC.
+| Attribut | Valeur |
+|----------|--------|
+| Verdict | **TERMINÉ** |
+| Date | 2026-07-31 |
+| Dépôt code | `hestia` tip `b93d209` |
+| Features | F-013 → F-017 validées |
+| Critères de done | Assistant bout-en-bout via Admin ; aucune étape métier n’exige l’UI HA ou Z2M |
+| Parcours | détection → admission → validation → mise en service → appairage |
+| Intégration Agent | Orchestration opérationnelle (checks, permit-join) via `hestia-agent` |
+| Suite produit | EPIC-004 / EPIC-012 facilités côté dépendances — **ne pas démarrer sans demande explicite** |
