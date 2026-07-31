@@ -3,10 +3,12 @@
 | Attribut | Valeur |
 |----------|--------|
 | **Phase** | P3 |
-| **Statut** | À faire |
-| **Dépôts** | `hestia-agent`, `hestia` |
-| **Prérequis** | EPIC-001, EPIC-002 (équipement connu) |
+| **Statut** | **TERMINÉ / CLÔTURÉ** (2026-07-31) |
+| **Dépôts** | `hestia` (Backend + Hub + notifications) ; `hestia-agent` (prérequis émission / hors lots A–D code) |
+| **Prérequis** | EPIC-001, EPIC-002 (équipement connu) ; EPIC-003 recommandé |
 | **Bloque** | EPIC-005, EPIC-006 |
+| **Exécution** | [`execution/EXEC-EPIC-004.md`](execution/EXEC-EPIC-004.md) |
+| **Tip code** | `2fd0cce` (`hestia`) |
 
 ## Sources
 
@@ -21,32 +23,46 @@
 
 Démontrer le **bénéfice utilisateur** : un événement réel devient **une** information claire pour un humain (notification optionnelle). Pas une démo d’administration.
 
-## Features
+## Features — implémentées et validées
 
-### F-018 — Chaîne minimale Capteur → Hub (1 type)
+| Feature | Contenu | Lot | Commit (`hestia`) |
+|---------|---------|-----|-------------------|
+| **F-018** | Chaîne minimale Capteur → Backend → Hub (+ notif. optionnelle) | A, C, D | `d570e22` · `adeae82` · `2fd0cce` |
+| **F-019** | Formulation d’une information utile | B | `41b5e4a` |
 
-**User Stories**
+### Lots A→D
 
-- US-004.1 En tant qu’utilisateur, je vois le résultat d’un événement de présence (SNZB) dans Hestia.
+| Lot | Objet | Commit (`hestia`) |
+|-----|-------|-------------------|
+| **A** | Ingest métier présence | `d570e2277f491d0f18f46f25fd0cbeea66dff62d` |
+| **B** | Formulation information utile | `41b5e4a5a74a5f735fd54c7962f1c5bcbe41753f` |
+| **C** | Surface Hub minimale | `adeae820b1f11011d4b2b5475e8a31db9bc189cc` |
+| **D** | Notification optionnelle | `2fd0cce0723f1c74a70a64362b949ab25eaa6f49` |
 
-**Tâches techniques**
+### F-018 — Chaîne minimale Capteur → Hub (1 type) ✅
 
-- Brancher un seul type d’événement de bout en bout
-- Chemin Agent → Backend → surface Hub minimale
+- Ingest présence rattaché à `hestia_device_id` (SoT)
+- Affichage Hub des informations utiles déjà formulées
+- Notification optionnelle (in-app enregistrée, sans envoi réel)
 
-### F-019 — Formulation d’une information utile
+### F-019 — Formulation d’une information utile ✅
 
-**User Stories**
+- Gabarit déterministe (présence) à partir du contexte métier SoT
+- Aucun jargon HA / MQTT / Zigbee2MQTT exposé
+- Pas de moteur décisionnel ni d’IA
 
-- US-004.2 En tant qu’humain, je comprends l’information sans jargon technique HA.
+## Résultat fonctionnel
 
-**Tâches techniques**
+Premier **flux fonctionnel complet** disponible côté `hestia` :
 
-- Gabarit d’information utile (texte / structure minimale)
-- Pas de moteur décisionnel complexe (reporté EPIC-007)
-- Pas d’IA requise (FUNCTIONAL-VISION §6)
+```text
+événement métier (présence)
+  → information utile (formulation)
+  → affichage Hub
+  → notification optionnelle
+```
 
-## Critères de done Epic
+## Critères de done Epic — atteints
 
-- Scénario PoC §15 reproductible sur nœud L8.
-- Valeur utilisateur validée avant généralisation Admin multi-équipements / IA.
+- Scénario PoC §15 reproductible jusqu’à Hub (+ notification optionnelle) côté Backend / PWA.
+- Valeur utilisateur validée avant généralisation Admin multi-équipements / IA (EPIC-005+).
