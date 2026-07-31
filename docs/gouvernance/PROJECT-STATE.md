@@ -1,7 +1,7 @@
 # PROJECT STATE — HESTIA
 
-Version : 1.4  
-Dernière mise à jour : 2026-07-31 (clôture UI-002)  
+Version : 1.5  
+Dernière mise à jour : 2026-07-31 (clôture EPIC-002)  
 Responsable : Équipe Hestia *(à compléter)*
 
 ---
@@ -40,13 +40,21 @@ En cas de divergence :
 
 # ÉTAT GLOBAL
 
-Statut général : **état stable** — **AUTO-002 CLÔTURÉ** · **UI-001 CLÔTURÉ** · **UI-002 CLÔTURÉ** (2026-07-31).
+Statut général : **état stable** — **AUTO-002 CLÔTURÉ** · **UI-001 CLÔTURÉ** · **UI-002 CLÔTURÉ** · **EPIC-002 CLÔTURÉ** (2026-07-31).
 
 Chantier actif : **aucun**.
 
-Dernier chantier terminé : **UI-002** — consolidation ergonomique de l’administration des nœuds (lots A→D).
+Dernier chantier terminé : **EPIC-002** — Backend SoT équipements Module 70 (lots A→D, F-007→F-012).
 
-Prochain chantier (backlog) : **aucun inscrit**. Ne pas inventer ni démarrer de chantier sans demande explicite.
+Prochain chantier (backlog) : **aucun inscrit**. Ne pas inventer ni démarrer de chantier sans demande explicite. (EPIC-003 / EPIC-004 débloqués côté dépendances — non démarrés.)
+
+Capacités figées après EPIC-002 :
+
+- registre des équipements conforme au Module 70 ;
+- Source of Truth des équipements opérationnelle (Backend) ;
+- machine d’états opérationnelle ;
+- nom logique SoT + `pending_ops` ;
+- remplacement deux fiches et reprises §6.8 disponibles.
 
 Références clôture AUTO-002 :
 
@@ -58,6 +66,8 @@ Références clôture AUTO-002 :
 Références clôture UI-001 : voir section **UI-001 — CLÔTURE OFFICIELLE** ci-dessous.
 
 Références clôture UI-002 : voir section **UI-002 — CLÔTURE OFFICIELLE** ci-dessous.
+
+Références clôture EPIC-002 : voir section **EPIC-002 — CLÔTURE OFFICIELLE** ci-dessous.
 
 ---
 
@@ -136,12 +146,13 @@ Agent ←→ Home Assistant / Mosquitto / Zigbee2MQTT  (locaux au nœud)
 
 ## hestia
 
-HEAD : tip **UI-002-D** `f7c481d`  
+HEAD : tip **EPIC-002-D** `c73a7d5`  
 Working tree : clean  
 État : synchronisé origin/main  
 Jalons 002F : F2 `9f46062` · F3 `213145a` · F4A `e334181` · F6 `09d3522`  
 UI-001 : B `af1dae4` · C `1d4f8e2` · D `ea5a667` · E `91aaeae` · F `62c54fc` · G `aa6f3ad`  
 UI-002 : A `abff25c` · B `d7e22c9` · C `0634fdd` · D `f7c481d`  
+EPIC-002 : A `153dff4` · B `b59ed07` · C `58f5755` · D `c73a7d5`  
 SW PWA : `hestia-v0.8.37`
 
 ---
@@ -166,7 +177,7 @@ Jalons 002F : F4B tip `0b7d002`
 
 ## hestia-docs
 
-HEAD : tip DOC-UI-002 lancement `95ec1e4` (clôture officielle = ce commit)  
+HEAD : tip antérieur clôture EPIC-002 (ce commit)  
 Working tree : clean  
 État : synchronisé origin/main
 
@@ -272,6 +283,36 @@ Comportement métier de UI-001 conservé. Lots indépendants, chacun validé sé
 
 ---
 
+# EPIC-002 — CLÔTURE OFFICIELLE
+
+| Attribut | Valeur |
+|----------|--------|
+| Statut | **TERMINÉ / CLÔTURÉ** (2026-07-31) |
+| Dépôt | `hestia` (API / core — SoT équipements) |
+| Périmètre | Lots **A→D** — F-007→F-012 (Module 70 / ADR-005) |
+| Backlog | [`docs/backlog/EPIC-002.md`](../backlog/EPIC-002.md) |
+| Exécution | [`docs/backlog/execution/EXEC-EPIC-002.md`](../backlog/execution/EXEC-EPIC-002.md) |
+| Tip | `c73a7d5` |
+
+## Commits de référence (hestia)
+
+| Lot | SHA | Contenu |
+|-----|-----|---------|
+| **EPIC-002-A** | `153dff4` | Fondation SoT `Equipment` (F-007, F-009) |
+| **EPIC-002-B** | `b59ed07` | Machine d’états (F-008) |
+| **EPIC-002-C** | `58f5755` | Nom logique + `pending_ops` (F-010) |
+| **EPIC-002-D** | `c73a7d5` | Remplacement + reprises (F-011, F-012) |
+
+## Synthèse
+
+- Registre équipements conforme Module 70  
+- Source of Truth Backend opérationnelle  
+- Machine d’états opérationnelle (transitions centralisées)  
+- Nom logique SoT + opérations différées (sans exécution auto Agent)  
+- Remplacement deux fiches et reprises §6.8 disponibles  
+
+---
+
 # DÉCISIONS STRUCTURANTES
 
 1. `hestia-docs` = Source de vérité transverse — [DECISION-0001](DECISION-0001-DOCUMENTATION.md).
@@ -292,6 +333,7 @@ Comportement métier de UI-001 conservé. Lots indépendants, chacun validé sé
 16. Continuité IA : `docs/gouvernance/PROJECT-STATE.md` + `PROMPT-REPRISE.md`.
 17. **UI-001 CLÔTURÉ** (2026-07-30) — VALIDÉ AVEC RÉSERVES ; tip `aa6f3ad` ; réserves → **UI-002**.
 18. **UI-002 CLÔTURÉ** (2026-07-31) — consolidation ergonomique lots A→D ; tip `f7c481d` ; SW `hestia-v0.8.37`.
+19. **EPIC-002 CLÔTURÉ** (2026-07-31) — SoT équipements Module 70 ; tip `c73a7d5` ; F-007→F-012.
 
 ---
 
@@ -300,14 +342,15 @@ Comportement métier de UI-001 conservé. Lots indépendants, chacun validé sé
 - Responsable PROJECT-STATE à renseigner.
 - G10 cold boot secteur — en attente séparée.
 - Idle timeout session terminal : non exercé bout-en-bout de façon dédiée (fermeture volontaire + finalize OK).
-- Déploiement VPS / nœud des commits F2–F6 + UI-001 + UI-002 : à confirmer ops si non déjà appliqué en prod (hors clôture code).
+- Déploiement VPS / nœud des commits F2–F6 + UI-001 + UI-002 + EPIC-002 : à confirmer ops si non déjà appliqué en prod (hors clôture code).
+- Consommation Agent des `pending_ops` équipements : hors EPIC-002 (exécution terrain différée).
 - Aucun prochain chantier produit inscrit — attendre une demande explicite.
 
 ---
 
 # BLOCAGES
 
-- Aucun pour la clôture documentaire UI-002.
+- Aucun pour la clôture documentaire EPIC-002.
 
 ---
 
@@ -315,9 +358,9 @@ Comportement métier de UI-001 conservé. Lots indépendants, chacun validé sé
 
 Objectifs immédiats :
 
-1. **Aucun chantier actif** — UI-001 et UI-002 clos ; ne pas les rouvrir sauf anomalie critique.
-2. Ne pas inventer ni démarrer de prochain chantier sans demande explicite.
-3. Ne pas rouvrir ADR-021 / ADR-023 ; ne pas réintroduire de token global.
+1. **Aucun chantier actif** — UI-001, UI-002 et EPIC-002 clos ; ne pas les rouvrir sauf anomalie critique.
+2. Ne pas inventer ni démarrer de prochain chantier sans demande explicite (EPIC-003 / EPIC-004 possibles côté backlog uniquement).
+3. Ne pas rouvrir ADR-021 / ADR-023 / ADR-005 ; ne pas réintroduire de token global.
 4. Ne pas remettre de logique métier dans `hestia-ws-relay`.
 5. Respecter la cartographie VPS vs mini-PC avant tout SSH.
 
@@ -341,7 +384,9 @@ Objectifs immédiats :
 
 | Date | Résumé | Décisions | Commit(s) | SHA | Résultat |
 |------|--------|-----------|-----------|-----|----------|
-| 2026-07-31 | Clôture officielle UI-002 | UI-002 CLÔTURÉ ; aucun chantier actif | hestia-docs | *(ce commit)* | UI-002 clos |
+| 2026-07-31 | Clôture officielle EPIC-002 | EPIC-002 TERMINÉ ; SoT équipements opérationnelle | hestia-docs | *(ce commit)* | EPIC-002 clos |
+| 2026-07-31 | EPIC-002 A→D (code hestia) | F-007→F-012 Module 70 | hestia | `153dff4`…`c73a7d5` | TERMINÉ |
+| 2026-07-31 | Clôture officielle UI-002 | UI-002 CLÔTURÉ ; aucun chantier actif | hestia-docs | `5926c82` | UI-002 clos |
 | 2026-07-31 | UI-002 A→D (code hestia) | Consolidation ergonomique admin nœuds | hestia | `abff25c`…`f7c481d` | CLÔTURÉ |
 | 2026-07-30 | Clôture doc UI-001 + backlog UI-002 | UI-001 VALIDÉ AVEC RÉSERVES ; réserves → UI-002 | hestia-docs | *(ce commit)* | UI-001 clos |
 | 2026-07-30 | UI-001 B→G (code hestia) | Refonte ergonomique admin nœuds | hestia | `af1dae4`…`aa6f3ad` | VALIDÉ AVEC RÉSERVES |
