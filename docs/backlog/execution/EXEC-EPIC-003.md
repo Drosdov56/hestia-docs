@@ -42,78 +42,108 @@ Hestia Admin = seule couche visible pour la mise en service métier ; jamais HA 
 
 | Lot | Objet | Features | Statut |
 |-----|-------|----------|--------|
-| **A** | File `detected` + admission Admin | F-016 | À faire |
-| **B** | Checks techniques multi-couches + rapport | F-013, F-014 | À faire |
-| **C** | Saisie métier + chemin jusqu'à `active` | F-015 | À faire |
-| **D** | Appairage / permit-join via Agent | F-017 | À faire |
+| **A** | Détection et admission | F-016 | À faire |
+| **B** | Validation technique | F-013, F-014 | À faire |
+| **C** | Mise en service | F-015 | À faire |
+| **D** | Appairage | F-017 | À faire |
 
 Dépôts cibles : `hestia` (PWA Admin + API) · `hestia-agent` (exécutions techniques).  
 Réutiliser les API EPIC-002 (`/admin/equipment`, transitions, logical-name) — ne pas les redéfinir.
 
 ---
 
-### Lot A — Admission (F-016)
+### Lot A — Détection et admission
 
 **Objectif**  
-Permettre à l’Admin d’admettre un équipement détecté et de créer la fiche Backend + `hestia_device_id`.
+Découvrir les équipements détectés, permettre l’admission par l’administrateur, créer la fiche `Equipment` et l’identité SoT (`hestia_device_id`).
 
-**Périmètre**
-- UI file des observations `detected` (buffer Agent / inventaire) ;
-- appel Backend d’admission (API EPIC-002) ;
-- affichage fiche en `pending_provisioning`.
+**Fonctionnalités couvertes**
+- **F-016** — Admission `detected` → `pending_provisioning`
+- découverte des équipements détectés ;
+- admission par l’administrateur ;
+- création de la fiche Equipment ;
+- création de l’identité SoT.
 
-**Hors lot A** : checks UX-003 complets ; formulaires métier ; permit-join.
+**Dépendances** : EPIC-002 (API admission / SoT). Aucun lot EPIC-003 préalable.
 
-**Dépendances** : EPIC-002.
+**Critères de validation**
+- la file des équipements détectés est consultable côté Admin ;
+- l’admission crée une fiche Backend avec `hestia_device_id` ;
+- l’état initial SoT est `pending_provisioning` ;
+- aucune écriture métier hors Backend.
+
+**État** : À faire
 
 ---
 
-### Lot B — Checks + rapport (F-013, F-014)
+### Lot B — Validation technique
 
 **Objectif**  
-Orchestrer les checks multi-couches (Zigbee / MQTT / découverte HA / entités) et produire un rapport avant saisie métier.
+Exécuter les contrôles multi-couches et produire un rapport de validation (erreurs et avertissements) avant la saisie métier.
 
-**Périmètre**
-- orchestration checks via Agent ;
-- mise à jour `validation_status` (ok / failed) ;
-- génération / affichage du rapport de validation fonctionnelle.
-
-**Hors lot B** : saisie nom / pièce / zone ; permit-join.
+**Fonctionnalités couvertes**
+- **F-013** — Checks techniques multi-couches
+- **F-014** — Rapport de validation fonctionnelle
+- contrôles multi-couches ;
+- rapport de validation ;
+- synthèse des erreurs et avertissements.
 
 **Dépendances** : Lot A.
 
----
+**Critères de validation**
+- les checks Zigbee / MQTT / découverte HA / entités sont orchestrés via l’Agent ;
+- `validation_status` reflète ok / failed ;
+- un rapport est affiché avant toute saisie métier ;
+- les erreurs et avertissements sont synthétisés de façon lisible.
 
-### Lot C — Infos métier + mise en service (F-015)
-
-**Objectif**  
-Collecter les infos métier Admin et conduire la fiche jusqu’à l’exploitation (`provisioned` → `synced` → `active`) via la machine d’états EPIC-002.
-
-**Périmètre**
-- formulaires : nom logique, pièce, zone, catégorie, options ;
-- validation champs obligatoires (Module 70) ;
-- persistance Backend (logical-name / métadonnées) ;
-- transitions métier jusqu’à `active` (API existantes).
-
-**Hors lot C** : appairage radio / permit-join.
-
-**Dépendances** : Lots A, B.
+**État** : À faire
 
 ---
 
-### Lot D — Appairage via Agent (F-017)
+### Lot C — Mise en service
 
 **Objectif**  
-Déclencher l’appairage (permit-join) sans ouvrir l’UI Z2M.
+Collecter les informations métier et conduire la fiche jusqu’à l’exploitation en appliquant strictement la machine d’états Module 70.
 
-**Périmètre**
-- commandes Admin → Agent → Z2M ;
-- feedback d’état d’appairage ;
-- intégration dans le parcours de mise en service.
+**Fonctionnalités couvertes**
+- **F-015** — Collecte infos métier Admin
+- saisie des informations métier ;
+- progression `provisioned` → `synced` → `active` ;
+- application stricte de la machine d’états Module 70.
 
-**Hors lot D** : UI Z2M / HA ; refactor global hors UX-003.
+**Dépendances** : Lots A, B ; machine d’états EPIC-002 (F-008).
 
-**Dépendances** : Lots A–C (parcours MS cohérent).
+**Critères de validation**
+- saisie nom logique, pièce, zone, catégorie, options avec validation Module 70 ;
+- persistance Backend (SoT nom logique / métadonnées) ;
+- transitions uniquement via la machine d’états documentée ;
+- un équipement peut atteindre `active` sans UI HA / Z2M.
+
+**État** : À faire
+
+---
+
+### Lot D — Appairage
+
+**Objectif**  
+Orchestrer le permit-join via `hestia-agent`, avec une UX entièrement pilotée par Hestia.
+
+**Fonctionnalités couvertes**
+- **F-017** — Appairage / permit-join via Agent
+- orchestration permit-join ;
+- dialogue avec hestia-agent ;
+- aucune exposition de Zigbee2MQTT ou Home Assistant dans l’interface ;
+- UX entièrement pilotée par Hestia.
+
+**Dépendances** : Lots A–C (parcours de mise en service cohérent).
+
+**Critères de validation**
+- l’Admin déclenche l’appairage sans ouvrir l’UI Z2M ni HA ;
+- les commandes transitent Admin → Agent → passerelle ;
+- le feedback d’état d’appairage est visible dans Hestia ;
+- aucune étape métier n’exige l’UI HA ou Z2M (critère de done Epic).
+
+**État** : À faire
 
 ---
 
@@ -134,7 +164,11 @@ Déclencher l’appairage (permit-join) sans ouvrir l’UI Z2M.
 
 Ouverture officielle de l'exécution de l'EPIC-003.
 
-Découpage A→D proposé (F-013→F-017).
+Découpage A→D fixé officiellement (F-013→F-017) :
+- A détection / admission ;
+- B validation technique ;
+- C mise en service ;
+- D appairage.
 
 Aucun développement réalisé.
 
